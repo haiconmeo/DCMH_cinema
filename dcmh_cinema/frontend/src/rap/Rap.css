@@ -1,0 +1,178 @@
+._head {
+    background-color: #DAD2B4;
+}
+
+
+/* .rap {
+    background-color: #F9F6EC;
+} */
+
+._head ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DAD2B4;
+}
+
+.dropdown {
+    float: left;
+    width: 14%;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+.dropdown a,
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+/* .dropdown a:hover,
+.dropdown:hover .dropbtn {
+    /* background-color: red; 
+
+
+}
+*/
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#bia {
+    width: 1920px;
+    height: 420px;
+}
+
+.noidung {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    /* border: 1px solid red; */
+    /* clear: left; */
+}
+
+.head_noidung {
+    /* border: 1px solid red; */
+    height: 40px;
+    /* clear: left; */
+    text-align: center;
+}
+
+
+/* .head_noidung h2 {
+    border: 1px solid red;
+    width: 300px;
+    float: left;
+    margin-top: -1%;
+} */
+
+
+/* .head_noidung h2 {
+    float: left;
+    padding-right: 100px;
+    margin-top: 5px;
+    font-size: 38px;
+} */
+
+.head_noidung a {
+    background-color: #ffffff;
+    color: rgb(20, 19, 19);
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #E5E5E5;
+    clear: left;
+}
+
+.diachi {
+    /* margin-top: 10%; */
+    border: 1px solid red;
+    /* clear: inherit; */
+}
+
+#ul_menu {
+    list-style-type: none;
+    margin-top: 3%;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+#ul_menu li a {
+    float: left;
+    display: inline-block;
+    color: rgb(5, 5, 5);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border: 1px solid #C0C0C0;
+    width: 21.5%;
+}
+
+#ul_menu li a:hover {
+    background-color: #CDC197;
+}
+
+#lich {
+    margin: 0;
+    height: 100px;
+    border: 1px solid red;
+    margin-top: 3%;
+}
+
+.chitietrap {
+    background-color: #FFFFFF;
+}
+
+
+/* cái phân loại phim  */
+
+.phanloaiphim ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    /* border-bottom-color: #DEDEDE; */
+}
+
+.phanloaiphim ul li {
+    float: left;
+    width: 14%;
+    border: 1px solid red;
+    text-align: center;
+    width: 24%;
+}

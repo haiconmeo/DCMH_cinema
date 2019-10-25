@@ -1,0 +1,68 @@
+.Login {
+    max-height: 400px;
+    width: 30%;
+    text-align: center;
+    margin: 10% auto;
+    border: 1px solid #fff;
+    background: #fff;
+    box-shadow: 5px 5px 5px 5px #ecf0f1;
+}
+
+.fom {
+    margin: 10% 0%;
+    font-size: 20px;
+}
+
+.fom input {
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    /* color: #fff; */
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 30px;
+    max-width: 60%;
+}
+
+.fom button {
+    padding: 10px 30px;
+    background: #8e44ad;
+    border: 1px solid #8e44ad;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+
+@media screen and ( max-width: 1200px) {
+    .Login {
+        width: 40%;
+    }
+}
+
+@media screen and ( max-width: 700px) {
+    .Login {
+        width: 80%;
+    }
+}
+
+.rou {
+    text-align: center;
+}
+
+.roi {
+    margin-top: 5%;
+    margin-bottom: -7%;
+}
+
+.bef {
+    margin: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid;
+    padding: 10px 20px;
+}
+
+.abc {
+    text-align: center;
+}

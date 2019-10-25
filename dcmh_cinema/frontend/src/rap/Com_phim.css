@@ -1,0 +1,46 @@
+.anh_com_phim img {
+    max-width: 100px;
+    height: 150px;
+}
+
+.anh_com_phim {
+    width: 20%;
+    /* border: 1px solid red; */
+    float: left;
+    margin: 5%;
+}
+
+.rowlist {
+    max-width: 555px;
+    max-height: 250px;
+    border-bottom: 1px solid rgba(150, 143, 143, 0.411);
+    /* border: 1px solid blue; */
+}
+
+span {
+    margin-right: 1.25em;
+}
+
+.clear_float {
+    clear: left;
+}
+
+.con_phim_detail {
+    border: 1px solid rgb(255, 255, 255);
+    margin: 5%;
+}
+
+.con_phim_detail_2 {
+    margin: 10%;
+    padding-left: 50px;
+}
+
+.con_phim_detail_2 a {
+    padding: 0px 20px;
+    border: 1px solid rgb(218, 215, 215);
+    text-decoration: none;
+}
+
+.con_phim_detail a {
+    text-decoration: none;
+}

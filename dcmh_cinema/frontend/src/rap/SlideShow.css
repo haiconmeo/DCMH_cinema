@@ -1,0 +1,13 @@
+.each-fade {
+    display: flex;
+}
+
+.each-fade .image-container {
+    width: 100%;
+    overflow: hidden;
+    height: 400px;
+}
+
+.each-fade .image-container img {
+    width: 100%;
+}

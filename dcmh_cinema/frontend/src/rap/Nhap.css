@@ -1,0 +1,67 @@
+    .rap {
+        margin: 2%;
+    }
+    
+    .top {
+        max-width: auto;
+        max-height: 150px;
+        /* border: 1px solid red; */
+    }
+    
+    .content_1 {}
+    
+    .content_left {
+        width: 50%;
+        /* border: 1px solid red; */
+        float: left;
+    }
+    
+    .content_right {
+        width: 50%;
+        float: right;
+        /* border: 1px solid red; */
+    }
+    
+    .hanhdong_rap {
+        padding-left: 5%;
+        width: 50%;
+        /* border: 1px solid red; */
+        float: left;
+        /* display: inline; */
+    }
+    
+    .hanhdong_rap_2 {
+        width: 40%;
+        /* border: 1px solid red; */
+        float: right;
+    }
+    
+    .clear-float {
+        clear: left;
+    }
+    
+    .button_2d {
+        display: block;
+        /* width: 100%; */
+        border: none;
+        /* background-color: #4CAF50; */
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        /* margin-left: 100px; */
+        margin-right: 4%;
+        float: left;
+    }
+    
+    .button_3d {
+        /* margin-right: 100px; */
+        display: block;
+        /* width: 100%; */
+        border: none;
+        /* background-color: rgb(175, 76, 158); */
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+    }

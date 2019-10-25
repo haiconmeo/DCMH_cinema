@@ -1,0 +1,58 @@
+.f_top {
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    background: #2d3436;
+}
+
+.Footer {
+    margin-top: 20px;
+    color: #dfe6e9;
+    height: 300px;
+    border-top: 1px solid;
+}
+
+.Footer img {
+    margin: 0 auto;
+    height: 80%;
+    object-fit: cover;
+}
+
+.bot {
+    height: 15%;
+    background: #34495e;
+    line-height: 40px;
+    max-height: 300px;
+    text-align: center;
+}
+
+.gt {
+    margin: 3% 8%;
+    text-align: left;
+    line-height: 50px;
+}
+
+.gt h1 {
+    border-left: 5px solid;
+    padding-left: 10px;
+    font-size: 25px;
+    margin-bottom: 15px;
+    height: 20px;
+    line-height: 20px;
+}
+
+#ic p {
+    display: inline;
+    margin-left: 10px;
+    font-size: 25px;
+    color: #dfe6e9;
+}
+
+@media screen and ( max-width: 800px) {
+    #ic {
+        display: none;
+    }
+    .bot {
+        height: 150px;
+    }
+}

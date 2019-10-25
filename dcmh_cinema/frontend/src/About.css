@@ -1,0 +1,28 @@
+
+.About{
+    text-align: justify;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.About h1{
+    display: block;
+    text-align: center;
+    margin: 40px 40px;
+    font-variant: small-caps;
+}
+.About p{
+    display: block;
+    margin-top: 40px;
+}
+
+.Footer{
+    height: 350px; 
+}
+.top{
+    height: 85%;
+    background: #2ecc71;
+}
+.bot{
+    height: 15%;
+    background: #34495e;
+}

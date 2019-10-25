@@ -1,0 +1,30 @@
+.phim{
+    text-align: center;
+}
+h1{
+    font-size: 90%;
+}
+.footer{
+    background-image: url(http://www.lottecinemavn.com/Media/WebAdmin/b3ba09c5d7be447d8e35292ecd653dd5.jpg) ;
+    height: 450px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.select{
+    margin-bottom: 20px;
+}
+.selec{
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #2ecc71;
+    background: #2ecc71;
+    color: #fff;
+    margin: 2px;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+#se{
+    color: #2ecc71;
+    border: 1px double #000;
+    background: #000;
+}

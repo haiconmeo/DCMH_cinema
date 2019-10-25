@@ -1,0 +1,42 @@
+.km {
+    height: 80px;
+}
+
+.km-menu {
+    background-color: #a8a8a8;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+}
+
+.content-km {
+    margin-top: 14px;
+    text-decoration: none;
+    font-weight: normal;
+    padding: 5px 10px;
+    transition: .5s;
+    font-size: 16px;
+    color: black;
+}
+
+.content-km:hover {
+    color: #000000;
+    font-weight: bold;
+}
+
+.content-km:active {
+    border-bottom: 2px solid #b31b1b;
+}
+
+.hot-event {
+    height: 600px;
+    margin: 0 15% 0 15%;
+}
+
+.hot-event h1 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-left: 20px;
+}

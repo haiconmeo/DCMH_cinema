@@ -1,0 +1,21 @@
+
+.About{
+    text-align: justify;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.About h1{
+    display: block;
+    text-align: center;
+    margin: 40px 40px;
+    font-variant: small-caps;
+}
+.About p{
+    display: block;
+    margin-top: 40px;
+}
+img{
+    margin: 0 auto;
+    display: block;
+    padding: 1%;
+}

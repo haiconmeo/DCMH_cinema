@@ -1,0 +1,37 @@
+.event-content {
+    position: relative;
+    float: left;
+    margin: 0 0 30px 20px;
+    border: 1px solid #dedede;
+    width: 230px;
+    height: 234px;
+}
+
+.event-anh {
+    width: 230px;
+    height: 200px;
+    border: 0;
+    vertical-align: middle;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.event-anh img {
+    margin: 0;
+    padding: 0;
+    width: 230px;
+    height: 200px;
+}
+
+.event-text {
+    padding: 5px;
+    border-top: 1px solid #dedede;
+    background: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(3, 3, 3);
+}
+
+.event-text p {
+    margin: 0 auto;
+}

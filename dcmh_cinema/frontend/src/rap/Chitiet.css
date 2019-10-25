@@ -1,0 +1,38 @@
+.chitiet_phim {
+    margin: 2%;
+}
+
+.chitiet_head ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DAD2B4;
+    border-bottom-color: #DEDEDE;
+}
+
+.chitiet_head ul li {
+    float: left;
+    width: 14%;
+    border: 1px solid red;
+    text-align: center;
+}
+
+#ten_phim_rap {
+    width: 24%;
+}
+
+.item_phim_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DAD2B4;
+    border-bottom-color: #DEDEDE;
+    width: 70px;
+}
+
+.item {
+    border: 1px solid rgb(240, 235, 235);
+    /* width: 30px; */
+}
