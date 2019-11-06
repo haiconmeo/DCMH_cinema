@@ -1,0 +1,46 @@
+#user_detail {
+    padding: 8px 16px;
+    /* border: 1px solid red; */
+    text-align: center;
+    background-color: #7E8EAA;
+}
+
+.user_detail_left {
+    width: 35%;
+    height: 500px;
+    border: 1px solid red;
+    float: left;
+}
+
+.user_detail_right {
+    width: 50%;
+    height: 500px;
+    border: 1px solid blue;
+    /* margin-left: 27%; */
+    float: right;
+}
+
+.clear_usre {
+    clear: right;
+}
+
+.profile-detail-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.profile-detail-input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+#profile-detail-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer
+}

@@ -10,11 +10,14 @@ class Select_rap extends React.Component{
     render(){
       return(
         <div className="custom-select">
-            <select>
-                {this.state.tenrap.map((value,index)=>
-                    <option value={value}>{value}</option>
+            
+            <form>
+              <select id="country" name="country">
+              {this.state.tenrap.map((value,index)=>
+                <option value={value}>{value}</option>
                     )}
-            </select>
+          </select>
+          </form>
         </div>
       );
     };

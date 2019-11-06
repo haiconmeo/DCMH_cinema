@@ -16,7 +16,8 @@ class Phim(models.Model):
     phim_theloai = models.CharField(max_length=50)
     phim_ngayphathanh = models.DateField(auto_now=False, auto_now_add=False)
     phim_trangthai = models.CharField(max_length=50)
-    phim_trailer = models.FilePathField( path="/video")
+    # phim_trailer = models.FilePathField( path="/video")
+    phim_trailer=models.CharField(max_length=50)
     phim_thongtin = models.TextField()
     anhphim =models.ManyToManyField(Anh, related_name="phim_anh", blank=True)
 class Rap(models.Model):

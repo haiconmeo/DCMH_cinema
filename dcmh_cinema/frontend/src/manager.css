@@ -1,0 +1,33 @@
+.row {
+    align-self: auto;
+}
+
+.head {
+    width: auto;
+    height: 50px;
+    background-color: rgb(93, 142, 184);
+}
+
+.sidebar {
+    height: 90%;
+    width: 160px;
+    position: fixed;
+    /* z-index: 1;
+    top: 0;
+    left: 0; */
+    background-color: rgb(60, 49, 124);
+    overflow-x: hidden;
+    /* padding-top: 16px; */
+}
+
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}

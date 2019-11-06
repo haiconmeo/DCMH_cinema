@@ -3,9 +3,11 @@
     padding: 0;
 }
 .Contact{
-    background: #2ecc71;
+    background-image: url(https://img.freepik.com/free-photo/movie-clapper-board-blue-background-filming-equipment_9555-771.jpg?size=626&ext=jpg);
     padding: 80px 0;
     text-align: center;
+    background-position-x: center;
+
 }
 .inner{
     max-width: 700px;
@@ -50,7 +52,7 @@
     padding: 1% 2%;
     border: 2px solid;
     border-radius: 10px;
-    background: none;
+    background: #2f3542;
     color: #fff;
     font-size: 15px;
     font-weight: bold;
@@ -58,6 +60,9 @@
 @media screen and (max-width: 1000px){
     .name-contact, .email, {
         width: 100%;
+    }
+    .Contact button{
+        margin-top: 25px;
     }
     .message{
         margin: 0 auto;

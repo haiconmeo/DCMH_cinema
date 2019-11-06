@@ -7,6 +7,7 @@ import Banggia from './Banggia.js'
 import Banggia2 from './Banggia2.js'
 import Com_phim from './Com_phim.js'
 import SlideShow from './SlideShow.js'
+import Footer from '../Footer/Footer.js';
 class Nhap extends React.Component{
     constructor(props){
       super(props)
@@ -60,6 +61,7 @@ class Nhap extends React.Component{
                
               
             </div>
+            <Footer/>
         </div>
       );
     };

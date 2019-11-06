@@ -1,0 +1,49 @@
+.ahihi {
+    max-width: 100%;
+    max-height: 500px;
+    background-color: #252830;
+}
+
+.head {
+    width: auto;
+    height: 50px;
+    background-color: #252830;
+}
+
+.sidebar {
+    height: 100%;
+    width: 15%;
+    float: left;
+    /* z-index: 1;
+    top: 0;
+    left: 0; */
+    background-color: #252830;
+    /* overflow-x: hidden; */
+    /* padding-top: 16px; */
+}
+
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.noidung {
+    float: right;
+    height: 100%;
+    width: 85%;
+    position: fixed;
+    /* z-index: 1;
+    top: 0;
+    left: 0; */
+    background-color: #252830;
+    /* overflow-x: hidde
+    n; */
+    border: 1px solid red;
+}

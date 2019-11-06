@@ -1,68 +1,24 @@
-.Login {
-    max-height: 400px;
-    width: 30%;
-    text-align: center;
-    margin: 10% auto;
-    border: 1px solid #fff;
-    background: #fff;
-    box-shadow: 5px 5px 5px 5px #ecf0f1;
+.input_login {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
-.fom {
-    margin: 10% 0%;
-    font-size: 20px;
-}
-
-.fom input {
-    background: none;
+.button_sumit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
     border: none;
-    outline: none;
-    border-bottom: 1px solid black;
-    /* color: #fff; */
-    padding: 10px;
-    font-size: 14px;
-    margin-bottom: 30px;
-    max-width: 60%;
+    cursor: pointer;
+    width: 100%;
 }
 
-.fom button {
-    padding: 10px 30px;
-    background: #8e44ad;
-    border: 1px solid #8e44ad;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: bold;
-}
-
-@media screen and ( max-width: 1200px) {
-    .Login {
-        width: 40%;
-    }
-}
-
-@media screen and ( max-width: 700px) {
-    .Login {
-        width: 80%;
-    }
-}
-
-.rou {
-    text-align: center;
-}
-
-.roi {
-    margin-top: 5%;
-    margin-bottom: -7%;
-}
-
-.bef {
-    margin: 20px;
-    text-decoration: none;
-    font-size: 20px;
-    border: 1px solid;
-    padding: 10px 20px;
-}
-
-.abc {
-    text-align: center;
+fieldset {
+    /* background-color: #CCC; */
+    max-width: 500px;
+    padding: 16px;
 }

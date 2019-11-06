@@ -1,8 +1,10 @@
 .hot-event {
     height: auto;
-    display: block;
-    text-align: center;
-    background: black;
+    margin: 0 15% 0 15%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
 }
 
 .hot-event h1 {

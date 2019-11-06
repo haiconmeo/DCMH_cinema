@@ -1,20 +1,16 @@
 from rest_framework import serializers
 from cinema.models import Phim,Anh,BookVe,DichVu,Rap,Ve
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
-
-# class AnhSerializer(serializers.ModelSerializer):
+# class UserSerializer(serializers.ModelSerializer):
 #     class Meta:
-#         model = Anh
-#         fields = '__all__'
-# class AnhDichVuSerializer(serializers.ModelSerializer):
+#         model = User
+#         fields = ['id','username','password']
+# class UserSerializer(serializers.ModelSerializer):
 #     class Meta:
-#         model = AnhDichVu
-#         fields = '__all__'
-# class AnhPhimSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = AnhPhim
-#         fields = '__all__'
+#         model = User
+#         fields = ('id', 'username')
 class BookVeSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookVe
@@ -30,10 +26,7 @@ class RapSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rap
         fields = ('id','rap_ten','rap_thongtin','anhs')
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id','username','password']
+
 class VeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ve
@@ -55,3 +48,42 @@ class AnhSerializer(serializers.ModelSerializer):
     class Meta:
         model = Anh
         fields  = ('id', 'anh_link','Rap_list','Phim_list','Dichvu_list')
+
+
+
+
+
+
+    #------------------
+from rest_framework import serializers
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+
+# User Serializer
+class UserSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = User
+    fields = ('id', 'username', 'email','password')
+
+# Register Serializer
+class RegisterSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = User
+    fields = ('id', 'username', 'email', 'password')
+    extra_kwargs = {'password': {'write_only': True}}
+
+  def create(self, validated_data):
+    user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
+
+    return user
+
+# Login Serializer
+class LoginSerializer(serializers.Serializer):
+  username = serializers.CharField()
+  password = serializers.CharField()
+
+  def validate(self, data):
+    user = authenticate(**data)
+    if user and user.is_active:
+      return user
+    raise serializers.ValidationError("Incorrect Credentials")

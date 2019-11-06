@@ -1,8 +1,9 @@
-.Phim{
+.Phim {
     margin: 0;
     padding: 0;
 }
-.td{
+
+.td {
     font-weight: bold;
     font-variant: small-caps;
     font-size: 130%;
@@ -10,14 +11,15 @@
     height: 40px;
     background: #b8e994;
     margin-bottom: -1px;
-
+    text-align: center;
 }
 
-.tl{
+.tl {
     height: 50px;
     margin: 5% 20% 1% 20%;
 }
-.l{
+
+.l {
     margin: 10px;
     font-weight: bold;
     text-decoration: none;
@@ -26,6 +28,7 @@
     margin-bottom: 20px;
     font-size: 20px;
 }
-.list{
+
+.list {
     margin-top: 30px;
 }

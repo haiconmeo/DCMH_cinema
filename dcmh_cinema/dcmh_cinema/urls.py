@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
+from knox import views as knox_views
 urlpatterns = [
     
-    path('',include('cinema.urls')),
+    path('api/',include('cinema.urls')),
+  
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
+    # path('auth', include('knox.urls')),
+    
 ]

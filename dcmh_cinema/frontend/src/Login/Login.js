@@ -1,66 +1,81 @@
-import React from 'react';
+import React, {Component} from "react";
+import {connect} from "react-redux";
+
+import {Link, Redirect} from "react-router-dom";
+
+import {auth} from "../actions";
 import './Login.css';
-import Footer from '../Footer/Footer.js'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams
-  } from "react-router-dom";
+class Login extends Component {
 
-export default class Login extends React.Component{
+    state = {
+        username: "",
+        password: "",
+    }
 
-    render(){
-        return(
-            <div className="rou" >
-                <Router>
-                <div className="roi">
-                    <Link className="bef" to="/dang-nhap">Sign in</Link>
-                    <Link className="bef" to="/dang-nhap/dang-ky">Sign up</Link>
-                </div>
-                
+    onSubmit = e => {
+        e.preventDefault();
+        this.props.login(this.state.username, this.state.password);
+    }
 
-                <Switch>
-                    <Route exact path="/dang-nhap"><Log/></Route>
-                    <Route path="/dang-nhap/dang-ky"><Sig/></Route>
-                </Switch>
-                </Router>
-                <div><Footer/></div>
-            </div>
-        );
+    render() {
+        if (this.props.isAuthenticated) {
+            return <Redirect to="/" />
+        }
+        return (
+            <form onSubmit={this.onSubmit}>
+                <fieldset>
+                    <legend>Login</legend>
+                    {this.props.errors.length > 0 && (
+                        <ul>
+                            {this.props.errors.map(error => (
+                                <li key={error.field}>{error.message}</li>
+                            ))}
+                        </ul>
+                    )}
+                    <p>
+                        <label htmlFor="username">Username</label>
+                        <input className="input_login"
+                            type="text" id="username"
+                            onChange={e => this.setState({username: e.target.value})} />
+                    </p>
+                    <p>
+                        <label htmlFor="password">Password</label>
+                        <input className="input_login"
+                            type="password" id="password"
+                            onChange={e => this.setState({password: e.target.value})} />
+                    </p>
+                    <p>
+                        <button className="button_sumit" type="submit">Login</button>
+                    </p>
+
+                    <p>
+                        Don't have an account? <Link to="/register">Register</Link>
+                    </p>
+                </fieldset>
+            </form>
+        )
     }
 }
 
-function Log() {
-    return (
-    <form className="Login">
-        <div className="fom">
-        Nhập Id... Làm ơn! <br/>
-        <input placeholder="Tên đăng nhập" type="text"></input><br/>
-        Password... Please!<br/>
-        <input placeholder="Mật khẩu" type="password"></input><br/>
-        <button type="submit">Đăng nhập</button>
-        </div>
-    </form>
-    );
-  }
+const mapStateToProps = state => {
+    let errors = [];
+    if (state.auth.errors) {
+        errors = Object.keys(state.auth.errors).map(field => {
+            return {field, message: state.auth.errors[field]};
+        });
+    }
+    return {
+        errors,
+        isAuthenticated: state.auth.isAuthenticated
+    };
+}
 
-  
-function Sig() {
-    return (
-    <form className="Login">
-        <div className="fom">
-        Nhập Email đi con chó <br/>
-        <input placeholder="Email" type="email"></input><br/>
-        Password... Please!<br/>
-        <input placeholder="Mật khẩu" type="password"></input><br/>
-        Nhập lại đi đụ mẹ<br/>
-        <input placeholder="Nhập lại mật khẩu" type="password"></input><br/>
-        <button type="submit">Đăng ký</button>
-        </div>
-    </form>
-    );
-  }
+const mapDispatchToProps = dispatch => {
+    return {
+        login: (username, password) => {
+            return dispatch(auth.login(username, password));
+        }
+    };
+}
 
-
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

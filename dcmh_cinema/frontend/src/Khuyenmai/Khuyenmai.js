@@ -21,7 +21,11 @@ class Khuyenmai extends React.Component{
     render(){
         return(
             <div className="km">
-                <Router>
+                <HotEvent/>
+                <KmPhim/>
+                <KmDoiTac/>
+                <Footer/>
+                {/* <Router>
                     <div className="km-menu">
                         <Link className="content-km" to="/khuyenmai/hot_event">HOT EVENT</Link>
                         <Link className="content-km" to="/khuyenmai/km_phim">QUÀ TẶNG THEO PHIM</Link>
@@ -29,12 +33,12 @@ class Khuyenmai extends React.Component{
                     </div>
                     <Switch>
                         <Route exact path="/khuyenmai/"><HotEvent/></Route>
-                        <Route path="/khuyenmai/hot_event"><HotEvent/></Route>
+                        <Route exact path="/khuyenmai/hot_event"><HotEvent/></Route>
+                        <Route axact path="/khuyenmai/hot_event/:id"><EventDetail/></Route>
                         <Route path="/khuyenmai/km_phim"><KmPhim/></Route>
                         <Route path="/khuyenmai/km_doitac"><KmDoiTac/></Route>
                     </Switch>
-                </Router>
-                <Footer/>
+                </Router> */}
             </div>
         );
     }

@@ -1,0 +1,44 @@
+.Food{
+    text-align: center;
+    border: 1px solid #fff;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    background: #fff;
+}
+.list-food{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Food p{
+    display: inline-block;
+    margin: 5px;
+    font-size: 12px;
+} 
+
+.Food h1{
+    font-size: 16px;
+    margin: 5px 0px;
+    height: 20px;
+    max-height: 70%;
+    line-height: 20px;
+    padding: 5px 0px;
+}
+.Food-time{
+    padding: 7px 5px;
+    font-weight: bold;
+}
+.Food-date{
+    color: #1e90ff ;
+    font-weight: bold;
+}
+.Food-ct{
+    border-top: 1px solid #2ecc71;
+}
+ @media screen and ( max-width: 1200px){
+    .Food{
+        max-width: 200px;
+    }
+} 
