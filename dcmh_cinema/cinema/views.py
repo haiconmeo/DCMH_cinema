@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.models import User # de lay user
 from rest_framework.response import Response
 # Create your views here.
-from cinema.models import Anh,BookVe,DichVu,Phim,Rap,Ve
+from cinema.models import Anh,BookVe,DichVu,Phim,Rap,Ve,Rap_phim_list
 from rest_framework import generics
-from cinema.serializers import AnhSerializer,BookVeSerializer,DichVuSerializer,PhimSerializer,RapSerializer,UserSerializer,VeSerializer
+from cinema.serializers import AnhSerializer,BookVeSerializer,DichVuSerializer,PhimSerializer,RapSerializer,UserSerializer,VeSerializer,Rap_phim_listSerializer
 from rest_framework.decorators import api_view
 from rest_framework import status
 
@@ -164,3 +164,18 @@ def User_detail(request, name):
     elif request.method == 'DELETE':
         us.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+@api_view(['GET', 'POST'])
+def rap_phim_list(request):
+    """
+    List all Raps, or create a new Rap.
+    """
+    if request.method == 'GET':
+        Raps = Rap_phim_list.objects.all()
+        serializer = Rap_phim_listSerializer(Raps,context={'request': request} ,many=True)
+        return Response(serializer.data)
+    # elif request.method == 'POST':
+    #     serializer = RapSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

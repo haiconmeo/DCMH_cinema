@@ -1,6 +1,9 @@
 import React from 'react';
 import './Select_rap.css';
 class Select_rap extends React.Component{
+  componentDidMount(){
+    this.props.get_tenrap();
+  }
     constructor(props){
       super(props)
       this.state={

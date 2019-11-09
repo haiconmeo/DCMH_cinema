@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from cinema.models import Phim,Anh,BookVe,DichVu,Rap,Ve
+from cinema.models import Phim,Anh,BookVe,DichVu,Rap,Ve,Rap_phim_list
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
@@ -50,7 +50,11 @@ class AnhSerializer(serializers.ModelSerializer):
         fields  = ('id', 'anh_link','Rap_list','Phim_list','Dichvu_list')
 
 
-
+class Rap_phim_listSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Rap_phim_list
+        fields  = '__all__'
 
 
 

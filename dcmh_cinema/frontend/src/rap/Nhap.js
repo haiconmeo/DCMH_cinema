@@ -5,7 +5,7 @@ import Thongtinchitiet from './Thongtinchitiet.js'
 import Select_rap from './Select_rap.js'
 import Banggia from './Banggia.js'
 import Banggia2 from './Banggia2.js'
-import Com_phim from './Com_phim.js'
+import ListComic from './Com_phim_2.js'
 import SlideShow from './SlideShow.js'
 import Footer from '../Footer/Footer.js';
 class Nhap extends React.Component{
@@ -42,7 +42,7 @@ class Nhap extends React.Component{
                 </div> 
                 <div className="hanhdong_rap_2"> <Select_rap/></div>
                 <div className="clear-float"> </div>
-                 <Com_phim/>
+                 <ListComic/>
                </div> 
                <div className ="content_right">
                  <h3>Gia ve</h3>

@@ -9,13 +9,13 @@ class Com_phim extends React.Component{
       this.state={
           phim :[
               {ten:"Trouble",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:["20:10","19:00"]},
-              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:"20:10"},
-              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:"20:10"},
-              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:"20:10"},
-              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:"20:10"},
-              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:"20:10"},
-              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:"20:10"},
-              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:"20:10"}
+              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:["20:10"]},
+              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:["20:10"]},
+              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:["20:10"]},
+              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:["20:10"]},
+              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:["20:10"]},
+              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:["20:10"]},
+              {ten:"manhpro",anh:"i",nam:"nam",thoiluong:"thoiluong",thoigianchieu:["20:10"]}
               
 
           ]
@@ -42,8 +42,12 @@ class Com_phim extends React.Component{
             <div class="con_phim_detail_2">
               
                   <ul>
-                 
-                     <a href=""> {value.thoigianchieu}</a>
+                  {value.thoigianchieu.map((item,i) =>
+                   (
+                    <a href=""> {item}</a>
+                  )
+                  )}
+                   
                       
                   </ul>
                      

@@ -1,6 +1,8 @@
 import React from 'react';
 import './Profile.css'
+import Resetpass from './Resetpass.js'
 import Profile_detail from './Profile_detail'
+import Tran_history from './Tran_history.js'
 import {
     BrowserRouter as Router,
     Switch,
@@ -30,7 +32,7 @@ class Profile extends React.Component {
                     <Route exact path="/profile"><Profile_detail/></Route>
                     <Route path="/profile/resetpass"><Resetpass/></Route>
                     <Route path="/profile/member_card"><Member_card/></Route>
-                    <Route path="/profile/transaction_history"><Tran_hostory/></Route>
+                    <Route path="/profile/transaction_history"><Tran_history/></Route>
                     
           
                 </Switch>
@@ -43,16 +45,6 @@ class Profile extends React.Component {
     }
 }
 
-  class Resetpass extends React.Component{
-    constructor(props){
-      super(props)
-    }
-    render(){
-      return(
-        <h1>Day la trang thay dooir pass</h1>
-      );
-    };
-  }
   class Member_card extends React.Component{
     constructor(props){
       super(props)
@@ -63,14 +55,5 @@ class Profile extends React.Component {
       );
     };
   }
-  class Tran_hostory extends React.Component{
-    constructor(props){
-      super(props)
-    }
-    render(){
-      return(
-        <h1>history</h1>
-      );
-    };
-  }
+
 export default Profile;

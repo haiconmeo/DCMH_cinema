@@ -1,12 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User # de lay user
-# rap.
-
-
-#phim
-
-
-# anh
+# from django.contrib.postgres.fields import ArrayField
 class Anh(models.Model):
     anh_link = models.FilePathField(path="/img")   
 # dich vu
@@ -20,11 +14,13 @@ class Phim(models.Model):
     phim_trailer=models.CharField(max_length=50)
     phim_thongtin = models.TextField()
     anhphim =models.ManyToManyField(Anh, related_name="phim_anh", blank=True)
+
 class Rap(models.Model):
     rap_ten = models.CharField(max_length=50)
     rap_thongtin =models.TextField()
     rap_diachi =models.TextField()
     anhs =models.ManyToManyField(Anh, related_name="rap_list", blank=True)
+    
 class DichVu(models.Model):
     dichVu_ten = models.CharField(max_length=50) 
     dichVu_gia = models.DecimalField(max_digits=9, decimal_places=2)
@@ -43,19 +39,20 @@ class BookVe(models.Model):
     bookve_user = models.ForeignKey(User, on_delete=models.CASCADE)
     bookve_soluong =models.IntegerField()
 
-# anh - phim
+class Rap_phim_list(models.Model):
+    rap_phim_rap= models.ForeignKey(Rap,on_delete=models.Case)
+    rap_phim_phim=models.ForeignKey(Phim,on_delete=models.CASCADE)
+    rap_phim_gio_chieu = models.TextField(blank=True)
+    def set_list(self, element):
+        if self.rap_phim_gio_chieu:
+            self.rap_phim_gio_chieu = self.rap_phim_gio_chieu + "," + element
+        else:
+            self.rap_phim_gio_chieu = element
 
-# class AnhPhim(models.Model):
-#     anhPhim_phim =models.ForeignKey(Phim, on_delete=models.CASCADE)
-#     anhPhim_anh = models.ForeignKey(Anh, on_delete=models.CASCADE)
-
-# # anh - dichvu
-
-# class AnhDichVu(models.Model):
-#     anhDichVu_dichvu =models.ForeignKey(DichVu, on_delete=models.CASCADE)
-#     anhDichVu_anh =  models.ForeignKey(Anh, on_delete = models.CASCADE)
-# class AnhRap(models.Model):
-#     anhRap_rap = models.ForeignKey(Rap, on_delete=models.CASCADE)
-#     anhRap_anh = models.ForeignKey(Anh, on_delete=models.CASCADE)
+    def get_list(self):
+        if self.rap_phim_gio_chieu:
+            return self.rap_phim_gio_chieu.split(",")
+        else:
+            None
     
 
