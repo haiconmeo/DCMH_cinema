@@ -1,17 +1,19 @@
 import React from 'react';
 import './Nhap.css'
-
+import { connect } from 'react-redux';
+import {get_tenrap} from '../actions/test';
 import Thongtinchitiet from './Thongtinchitiet.js'
 import Select_rap from './Select_rap.js'
 import Banggia from './Banggia.js'
 import Banggia2 from './Banggia2.js'
-import ListComic from './Com_phim_2.js'
+import ListComic from './Com_phim.js'
 import SlideShow from './SlideShow.js'
 import Footer from '../Footer/Footer.js';
 class Nhap extends React.Component{
     constructor(props){
       super(props)
       this.state = {isToggleOn: true};
+      this.props.get_tenrap();
     }
     handleClick=()=>{
         document.getElementById("btn").src="./img/banggia.jpg"
@@ -25,6 +27,16 @@ class Nhap extends React.Component{
       document.getElementById("2d").style.backgroundColor="#FFFFFF";
       document.getElementById("3d").style.backgroundRepeat = "no-repeat";
 
+  }
+  select_option(){
+    var result= [];
+
+      for(var i = 0; i < this.props.tenrap.length; i++)
+      {
+        result.push(<option>{this.props.tenrap[i].rap_ten}</option>)
+      }
+    
+    return result;
   }
     render(){
       return(
@@ -40,9 +52,9 @@ class Nhap extends React.Component{
                 
                 
                 </div> 
-                <div className="hanhdong_rap_2"> <Select_rap/></div>
+                <div className="hanhdong_rap_2"> <Select_rap Select={this.select_option()}/></div>
                 <div className="clear-float"> </div>
-                 <ListComic/>
+                 <ListComic />
                </div> 
                <div className ="content_right">
                  <h3>Gia ve</h3>
@@ -66,5 +78,21 @@ class Nhap extends React.Component{
       );
     };
   }
-
-export default  Nhap;
+  const mapStateToProps = (state) =>{
+    return{
+      tenrap: state.comics
+    }
+  }
+  
+  
+  
+  const mapDispatchToProps =(dispatch, props)=>
+  {
+    return {
+      get_tenrap : ()=>{
+      dispatch(get_tenrap())
+  
+    }
+  }
+  }
+  export default connect(mapStateToProps,mapDispatchToProps)(Nhap);  

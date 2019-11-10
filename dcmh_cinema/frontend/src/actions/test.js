@@ -1,9 +1,8 @@
 import axios from 'axios';
-export const fetchListComic = () => {
+export const get_tenrap = () => {
     return dispatch => {
-        return axios.get('http://127.0.0.1:8000/api/rap/').then(data=>
-        {
-            
+        return axios.get('http://127.0.0.1:8000/api/rap/').then(data => {
+
             dispatch(returnList(data.data))
         })
     }
@@ -14,4 +13,3 @@ const returnList = (comics) => ({
     type: 'SHOW_LIST',
     tenrap: comics
 });
-

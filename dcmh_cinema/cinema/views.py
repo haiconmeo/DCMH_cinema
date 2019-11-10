@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.models import User # de lay user
 from rest_framework.response import Response
 # Create your views here.
-from cinema.models import Anh,BookVe,DichVu,Phim,Rap,Ve,Rap_phim_list
+from cinema.models import Anh,BookVe,DichVu,Phim,Rap,Ve
 from rest_framework import generics
-from cinema.serializers import AnhSerializer,BookVeSerializer,DichVuSerializer,PhimSerializer,RapSerializer,UserSerializer,VeSerializer,Rap_phim_listSerializer
+from cinema.serializers import AnhSerializer,BookVeSerializer,DichVuSerializer,PhimSerializer,RapSerializer,UserSerializer,VeSerializer,phim_anhSerializer
 from rest_framework.decorators import api_view
 from rest_framework import status
 

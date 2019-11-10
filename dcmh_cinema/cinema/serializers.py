@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from cinema.models import Phim,Anh,BookVe,DichVu,Rap,Ve,Rap_phim_list
+from cinema.models import Phim,Anh,BookVe,DichVu,Rap,Ve
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
@@ -22,10 +22,12 @@ class DichVuSerializer(serializers.ModelSerializer):
         fields = '__all__'
 class RapSerializer(serializers.ModelSerializer):
     # image_rap = serializers.RelatedField(source='AnhRap', read_only=True)
-    anhs = serializers.PrimaryKeyRelatedField(queryset=Anh.objects.all(), many=True)
+    # anhs = serializers.StringRelatedField(queryset=Anh.objects.all(), many=True)
+    anhs = serializers.StringRelatedField(read_only=True,many=True)
+    phims= serializers.StringRelatedField(read_only=True,many=True)
     class Meta:
         model = Rap
-        fields = ('id','rap_ten','rap_thongtin','anhs')
+        fields = '__all__'
 
 class VeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,10 +39,13 @@ class VeSerializer(serializers.ModelSerializer):
 #         model = AnhRap
 #         fields = '__all__'
 class PhimSerializer(serializers.ModelSerializer):
-    anhphim = serializers.PrimaryKeyRelatedField(queryset=Anh.objects.all(), many=True)
+    anhphim = serializers.StringRelatedField(read_only=True,many=True)
     class Meta:
-        model = Phim
-        fields  = '__all__'
+
+      model = Phim
+      # tam = Anh.objects.order_by('id')
+      # print (tam)
+      fields  ='__all__'
 class AnhSerializer(serializers.ModelSerializer):
     Rap_list = RapSerializer(many=True, read_only=True)
     Phim_list = PhimSerializer(many=True,read_only=True)
@@ -50,13 +55,19 @@ class AnhSerializer(serializers.ModelSerializer):
         fields  = ('id', 'anh_link','Rap_list','Phim_list','Dichvu_list')
 
 
-class Rap_phim_listSerializer(serializers.ModelSerializer):
-    
-    class Meta:
-        model = Rap_phim_list
-        fields  = '__all__'
+# class Rap_phim_listSerializer(serializers.ModelSerializer):
+#     rap_phim_rap= serializers.StringRelatedField(read_only=True)
+#     rap_phim_phim= serializers.StringRelatedField(read_only=True)
+#     class Meta:
+#         model = Rap_phim_list
+#         fields  = '__all__'
 
-
+class phim_anhSerializer(serializers.ModelSerializer):
+  Phim_list = PhimSerializer(many=True,read_only=True)
+  Anh_list = AnhSerializer(many=True,read_only=True)
+  class Meta:
+    model = Anh
+    fields  = ('id', 'Anh_list','Phim_list')
 
     #------------------
 from rest_framework import serializers

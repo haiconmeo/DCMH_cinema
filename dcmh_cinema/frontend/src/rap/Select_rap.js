@@ -1,28 +1,24 @@
 import React from 'react';
 import './Select_rap.css';
+import { connect } from 'react-redux';
+import {get_tenrap} from '../actions/test';
 class Select_rap extends React.Component{
-  componentDidMount(){
-    this.props.get_tenrap();
-  }
-    constructor(props){
-      super(props)
-      this.state={
-          tenrap :["manh","hoang","cuong","dung"]
-      }
-    }
+
     render(){
       return(
         <div className="custom-select">
             
             <form>
               <select id="country" name="country">
-              {this.state.tenrap.map((value,index)=>
-                <option value={value}>{value}</option>
-                    )}
+              
+                    {this.props.Select}
           </select>
           </form>
+          
         </div>
       );
     };
   }
-export default Select_rap;
+
+
+  export default Select_rap;  
