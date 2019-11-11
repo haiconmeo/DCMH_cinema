@@ -8,13 +8,21 @@ import Contact from './Contact/Contact.js'
 import Phimct from './Movie/Phimct.js'
 import Register from './register/Register.js'
 import Login from './Login/Login.js'
+
+import {connect} from "react-redux";
+
+import { BrowserRouter, Redirect} from 'react-router-dom';
+
+import {auth} from "./actions";
 import Nhap from './rap/Nhap.js'
 import Khuyenmai  from './Khuyenmai/Khuyenmai.js';
 import EventDetail from './Khuyenmai/EventDetail.js';
 // import Phimdel from './Movie/Phimdel.js'
 import Profile from './Profile/Profile'
 import Datve from './Datve/Datve.js'
-import Food from './food/Food.js';
+import Thanhtoan from './Datve/thanhtoan.js';
+import Giave from './Datve/giave.js';
+// import Muave from './Datve/Muave'
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,39 +33,68 @@ import {
 
 
 class App extends React.Component {
-  constructor(props){
-    super(props)
+  componentDidMount() {
+    this.props.loadUser();
+   //console.log(this.props.username);
+}
+  
+  PrivateRoute = ({component: ChildComponent, ...rest}) => {
+    return <Route {...rest} render={props => {
+        if (this.props.auth.isLoading) {
+            return <em>Loading...</em>;
+        } else if (!this.props.auth.isAuthenticated) {
+            return <Redirect to="/login" />;
+        } else {
+            return <ChildComponent {...props} />
+        }
+    }} />
+}
+  show=()=>{
+    alert(this.props.user.username)
   }
   render(){
+    
+    
+    
+    let {PrivateRoute} = this;
     return (
       <Router>
-        <div className="App">
+    <div className="App">
           <div className="top-top">
             <div className="top-right">
-            <Link id="as" className="menu-top" to="/About">About</Link>
-            <Link id="as" className="menu-top" to="/Contact">Contact</Link>
-            <Link id="as" className="menu-top" to="/profile">Contact</Link>
-            <Link className="menu-top" to="/login">Đăng nhập</Link>
+            <Link id="as" className="menu-top" to="/About">Giới thiệu</Link>
+            <Link id="as" className="menu-top" to="/Contact">Liên hệ</Link>
+            {!this.props.isAuthenticated&&
+            <Link className="menu-top" to="/login">Đăng nhập</Link> 
+            }
+            { this.props.isAuthenticated &&
             
 
-            {/* <Link  to="/phim-detail"></Link> */}
-            </div>
-          </div>
-          <div className="logo">
-          <Link className="name" to="/"><i className="fab fa-react"></i> ヤンキー</Link>
-          </div>
-            <div className= "menu">
-              <Link className="content" to="/mua-ve">Mua vé</Link>
-              <Link className="content" to="/phim">Phim</Link>
-              <Link className="content" to="/rap">Rạp</Link>
-              <Link className="content" to="/khuyenmai">Khuyến mãi</Link>
-            </div>
+            <Link className="menu-top" to="/profile">{this.props.username.username}</Link>
             
-      
+            
+            }
+             { this.props.isAuthenticated &&
+            <a onClick={this.props.logout}>logout</a>}
+            <Link  to="/phim-detail"></Link>
+            
+            </div>
+          </div>
+            
+          <div className="logo">
+          <Link className="name" to="/"> Susan </Link>
+          </div>
+
+          <div className= "menu">
+            <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/mua-ve">MUA VÉ</Link>
+            <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/phim">PHIM</Link>
+            <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/rap">RẠP</Link>
+            <Link className="content" to="/khuyenmai">KHUYẾN MÃI</Link>
+          </div>
         <Switch>
           <Route exact path="/"><Home/></Route>
-          <Route path="/mua-ve"><Muave/></Route>
-          <Route path="/profile"><Profile/></Route>
+          {/* <Route path="/mua-ve"><Muave/></Route> */}
+          <PrivateRoute path="/profile" component={Profile}/>
           <Route path="/phim"><Phim/></Route>
           <Route path="/rap"><Nhap/></Route>
           <Route exact path="/khuyenmai"><Khuyenmai/></Route>
@@ -66,7 +103,10 @@ class App extends React.Component {
           <Route path="/Contact"><Contact/></Route>
           <Route path="/login"><Login_home/></Route>
           {/* <Route path="/phim-detail/:id"><Phimdel/></Route> */}
+          <Route path="/thanh-toan"><Thanhtoan/></Route>
           <Route path="/dat-ve"><Datve/></Route>
+          {console.log("day ne",this.props.username)}
+          <Route path="/register"><Register/></Route>
         </Switch>
       </div>
       </Router>
@@ -94,18 +134,22 @@ class Login_home extends React.Component{
       );
     };
   }
-class Muave extends React.Component{
-  constructor(props){
-    super(props)
+
+  const mapStateToProps = state => {
+    return {
+      auth: state.auth,
+      username : state.auth.user,
+      isAuthenticated: state.auth.isAuthenticated
+    }
   }
-  render(){
-    return(
-      <h1>Day la trang Mua ve</h1>
-    );
-  };
-}
-
-
-
-
-export default App;
+  
+  const mapDispatchToProps = dispatch => {
+    return {
+      loadUser: () => {
+        return dispatch(auth.loadUser());
+      },
+      logout: () => dispatch(auth.logout()),
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(App);

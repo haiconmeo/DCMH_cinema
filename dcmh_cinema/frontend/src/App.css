@@ -1,51 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 .logo{
   display: block;
-  height: 100px;
-  margin-top: 1%;
+  height: 80px;
   margin: 0 auto;
-  border-bottom: 4px solid #b8e994;
+  border-bottom: 1px solid #70a1ff;
   text-align: center;
-  line-height: 100px;
+  line-height: 80px;
 }
 .App{
   height: 100px;
+  background: #70a1ff;
 }
 .top-top{
   background: #b8e994;
   height: 24px;
 }
 .top-right{
-  margin-left: 70%;
+  float: right;
+  margin-right: 4%;
 }
 .menu-top{
-  margin: 20px;
+  padding: 15px;
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
 }
 
 .name{
-  margin: 20px;
-  font-size: 40px;
+  font-size: 50px;
   text-decoration: none;
-  font-weight: bold;
-  color: #eb2f06;
+  color: #fff;
+  font-family: 'Pacifico', cursive;
+  text-shadow: -1px 0 #b8e994, 0 1px #b8e994;
+  
 }
 .menu{
   justify-content: center;
   margin: 1% auto;
   text-align: center;
   display: block;
-  height: 70px;
-  line-height: 55px;
-  border-bottom: 4px solid #b8e994;
+  height: 40px;
+  line-height: 30px;
+  border-bottom: 1px solid #b8e994;
+  
 }
 .content{
-  margin-right: 20px;
   margin-top: 20px;
   text-decoration: none;
   font-weight: bold;
-  padding: 5px 10px;
+  padding: 1px 20px;
   transition: .5s;
   font-size: 20px;
 }

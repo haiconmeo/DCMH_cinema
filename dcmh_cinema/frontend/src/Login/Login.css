@@ -22,3 +22,9 @@ fieldset {
     max-width: 500px;
     padding: 16px;
 }
+
+.form_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

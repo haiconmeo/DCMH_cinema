@@ -29,6 +29,8 @@
 .Dat-ve-l{
     text-decoration: none;
     font-weight: bold;
+    float: right;
+    padding-right: 20px;
 }
 .selec{
     width: 100px;
@@ -37,6 +39,7 @@
 }
 .nut{
     float: left;
+    padding-left: 20px;
 }
 .nut button{
     height: 20px;
@@ -79,4 +82,56 @@
     padding-right: 5px;
     border-right: 1px solid #bdc3c7;
 }
+.dat-ve-kq{
+    overflow: hidden;
+    background: #ecf0f1;;
+}
+.dat-ve-kq ul{
+    display: table;
+    margin: 0 auto;
+}
+.dat-ve-kq ul li{
+    display: table-cell;
+    vertical-align: top;
+    padding: 15px 15px 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+.dat-ve-kq img{
+    height: 60px;
+    float: left;
+}
+.dat-ve-kq ul h1{
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.dat-ve-kq ul h2{
+    font-size: 12px;
+    text-align: left;
+}
+.dat-ve-kq ul h3{
+    font-size: 15px;
+    text-align: left;
+    padding: 20px 0px;
+    color: #e74c3c;
+}
+.dat-ve-kq ul p{
+    float: right;
+}
+
+@media ( max-width: 800px){
+    .dat-ve-kq ul h1, .nut, .Dat-ve-l{
+        font-size: 12px;
+    }
+    .dat-ve-kq ul h2, {
+        font-size: 8px;
+    }
+    .dat-ve-kq ul h3, .Dat-ve-sl p{
+        font-size: 10px;
+    }
+    .dat-ve-kq img{
+        height: 31px;
+    }
+}
+
 

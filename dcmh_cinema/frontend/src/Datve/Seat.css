@@ -13,6 +13,7 @@ h1 {
   height: 15px;
   padding: 5px;
   border: 2px solid orange;
+  border-radius: 50%;
   text-align: center;
   float: left;
   margin: 5px;

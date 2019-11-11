@@ -22,7 +22,7 @@ class Login extends Component {
             return <Redirect to="/" />
         }
         return (
-            <form onSubmit={this.onSubmit}>
+            <form className= "form_login" onSubmit={this.onSubmit}>
                 <fieldset>
                     <legend>Login</legend>
                     {this.props.errors.length > 0 && (

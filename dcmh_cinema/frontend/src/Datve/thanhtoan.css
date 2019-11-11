@@ -1,0 +1,117 @@
+.thanh-toan{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+}
+.thanh-toan-top{
+    margin: 5% 20% 0% 20%;
+    border: 1px solid #3498db;
+}
+
+.thanh-toan-top h1{
+    color: #fff;
+    background: #3498db;
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+    align-items: center;
+}
+
+.thanh-toan-select{
+    margin: 20px;
+    background: #ecf0f1;
+    padding: 30px;
+    text-align: left;
+}
+.thanh-toan-gt{
+    clear: left;
+}
+.thanh-toan-gt{
+    background: #2ecc71;
+    color: #fff;
+    margin: 0 20%;
+    font-weight: bold;
+}
+.DkSD {
+    margin: 5% 20% 0% 20%;
+}
+.DkSD h1{
+    color: #fff;
+    background: #3498db;
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+    align-items: center;
+}
+.DkSD p{
+    height: 167px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #dedede;
+    overflow-y: auto;
+    background: #f9f6ec;
+    font-size: 14px;
+    color: #666;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: justify;
+}
+.thanh-toan-bot{
+    margin-top: 3%;
+    text-align: left;
+    background: #3498db;
+    padding: 1% 20%;
+}
+.tro-lai-dv{
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+}
+.buoc-tiep-dv{
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    float: right;
+}
+.thanh-toan-sp{
+    padding: 10px;
+    background: #ecf0f1;
+}
+.thanh-toan-sp h1{
+    font-size: 20px;
+    color: #e67e22;
+}
+.thanh-toan-sp p{
+    padding: 10px;
+    text-align: left;
+    margin: 0 38%;
+}
+.thanh-toan-sp h5{
+    float: right;
+}
+.thanh-toan-sp button{
+    margin: 10px 0px;
+    font-size: 20px;
+    padding: 10px 40px;
+    background: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+    font-weight: bold;
+}
+@media(min-width: 768px) and (max-width: 1023px) {
+    .thanh-toan-sp p{
+        margin: 0 30%;
+    }
+}
+@media ( max-width: 800px){
+    .thanh-toan-sp p{
+        margin: 0 20%;}
+    .DkSD h1{
+        font-size: 10px;}
+    .thanh-toan-top h1, .thanh-toan-sp h1, .thanh-toan-sp button, .thanh-toan-sp p{
+        font-size: 15px;}
+    .thanh-toan-select{
+        font-size: 13px;}
+
+}

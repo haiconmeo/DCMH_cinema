@@ -12,7 +12,7 @@ class About extends React.Component{
                 <h1>Cảm ơn vì đã ở đây, đồng hành cùng bọn tao</h1>
                 <Player
                 playsInline
-                poster="./images/thanks.jpg"
+                poster="img/thanks.jpg"
                 src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
                 />
                 <p>Susan CINEMA là cụm rạp chiếu phim lớn nhất toàn cầu .Mục tiêu của chúng tôi là trở thành hình mẫu công ty điển hình đóng góp cho sự phát triển không ngừng của ngành công nghiệp điện ảnh Việt Nam.</p>
