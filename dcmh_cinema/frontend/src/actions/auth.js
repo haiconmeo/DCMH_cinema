@@ -127,3 +127,34 @@ export const logout = () => {
             })
     }
 }
+
+export const profile = (user, birth_date, phonenum, address, cmmd) => {
+    return (dispatch, getState) => {
+        let headers = { "Content-Type": "application/json" };
+        let body = JSON.stringify({ user, birth_date, phonenum, address, cmmd });
+        console.log(body)
+        return fetch("http://localhost:8000/api/auth/profile", { headers, body, method: "POST" })
+            .then(res => {
+                if (res.status < 500) {
+                    return res.json().then(data => {
+                        return { status: res.status, data };
+                    })
+                } else {
+                    console.log("Server Error!");
+                    throw res;
+                }
+            })
+            .then(res => {
+                if (res.status === 200) {
+                    dispatch({ type: 'EDIT_PROFILE_SUCCESSFUL', data: res.data });
+                    return res.data;
+                } else if (res.status === 403 || res.status === 401) {
+                    dispatch({ type: "AUTHENTICATION_ERROR", data: res.data });
+                    throw res.data;
+                } else {
+                    dispatch({ type: "EDIT_PROFILE_FAILED", data: res.data });
+                    throw res.data;
+                }
+            })
+    }
+}

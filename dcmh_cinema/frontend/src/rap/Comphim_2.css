@@ -1,0 +1,103 @@
+.Phimct {
+    text-align: center;
+    border: 1px solid #fff;
+    box-shadow: 5px 5px 5px 5px #ecf0f1;
+    /* max-width: 230px;  */
+    /* max-width: 70%;
+    max-height: 80%; */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Phimct p {
+    display: inline-block;
+    margin: 5px;
+    font-size: 12px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 240px auto auto;
+    /*background-color: #2196F3;*/
+    padding: 10px;
+    box-shadow: 5px 5px 5px 5px #ecf0f1;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 2px;
+    font-size: 30px;
+    /*text-align: center;*/
+}
+
+.grid-item_1 {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 2px;
+}
+
+
+/* .Phimct img{
+    margin-top: -1px;
+    margin-bottom: -1px;
+} */
+
+h1 {
+    font-size: 16px;
+    margin: 5px 0px;
+    height: 20px;
+    max-height: 70%;
+    line-height: 20px;
+}
+
+.time {
+    border-right: 1px solid #2ecc71;
+    padding-right: 10px;
+}
+
+.ct {
+    border-top: 1px solid #2ecc71;
+}
+
+.Phimdc {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* max-width: 1200px; */
+    /* min-height: 100vh; */
+    margin-bottom: 60px;
+}
+
+.contact {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.ds,
+.ds-1,
+.ds-2 {
+    margin: 15px;
+    width: 500px;
+}
+
+.contac {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+    padding: 0 20px;
+    align-items: center;
+}
+
+@media screen and ( max-width: 1200px) {
+    .contact,
+    .contac {
+        flex-wrap: wrap;
+    }
+}

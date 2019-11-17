@@ -10,7 +10,7 @@ const ListMovie = () => (
     <ul>
         {pdangchieuReducer.map(item =>(
             <li key ={item.id}>
-                <img className="image">{item.img}</img>
+                <img id="muave_img"className="image">{item.img}</img>
                 <span className="name">{item.name}</span>
             </li>
         ))}

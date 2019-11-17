@@ -11,6 +11,10 @@ import {
     useParams
   } from "react-router-dom";
 class Profile extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
     render(){
         return(
             <div className="profile">
@@ -29,7 +33,7 @@ class Profile extends React.Component {
                 </div>
                 <div className="right_profile">
                 <Switch>
-                    <Route exact path="/profile"><Profile_detail/></Route>
+                    <Route exact path="/profile"><Profile_detail id={this.props.id}/></Route>
                     <Route path="/profile/resetpass"><Resetpass/></Route>
                     <Route path="/profile/member_card"><Member_card/></Route>
                     <Route path="/profile/transaction_history"><Tran_history/></Route>

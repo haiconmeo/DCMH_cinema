@@ -65,3 +65,9 @@ class BookVe(models.Model):
 #             None
     
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phonenum = models.CharField(max_length=30, blank=True)
+    address = models.CharField(max_length=30, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+    cmmd = models.CharField(max_length=30, blank=True)

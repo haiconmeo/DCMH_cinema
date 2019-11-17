@@ -11,6 +11,7 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 let store = createStore(myreducer, applyMiddleware(thunk));
+console.log('Default:', store);
 ReactDOM.render(
     <Provider store={store}>
       <App />

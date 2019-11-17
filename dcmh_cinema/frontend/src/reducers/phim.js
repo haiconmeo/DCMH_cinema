@@ -1,19 +1,10 @@
-import _ from 'lodash';
-import { GET_MOVIE } from './../constants/phim';
-const initialState = {
-    isLoading: true,
-    res: null,
-    errors: {},
-};
-
-export default (state = initialState, action) => {
+var initialState = [];
+export default function listphim(state = initialState, action) {
     switch (action.type) {
-        case GET_MOVIE:
-            return {
-                ...state,
-                ...action.payload
-            };
+        case 'SHOW_LIST_PHIM':
+            return [...action.ten_phimAPI]
+
         default:
-            return state;
+            return [...state];
     }
-};
+}

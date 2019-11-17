@@ -1,5 +1,5 @@
 import auth from "./auth";
-import phim from "./phim"
+import listphim from "./phim"
 import comics from './test';
 import Pdangchieu from './pdangchieu-reducer';
 import Psapchieu from './psapchieu-reducer';
@@ -11,7 +11,7 @@ import selectfood from './selectfood.js';
 
 const myreducer = combineReducers({
     auth,
-    phim,
+    listphim,
     comics,
     pdc: Pdangchieu,
     psc: Psapchieu,

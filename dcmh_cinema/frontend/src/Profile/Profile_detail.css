@@ -5,21 +5,6 @@
     background-color: #7E8EAA;
 }
 
-.user_detail_left {
-    width: 35%;
-    height: 500px;
-    border: 1px solid red;
-    float: left;
-}
-
-.user_detail_right {
-    width: 50%;
-    height: 500px;
-    border: 1px solid blue;
-    /* margin-left: 27%; */
-    float: right;
-}
-
 .clear_usre {
     clear: right;
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import './Com_phim.css';
-// import Anh from '/img/rap.jpg'
-// import Map from '/img/map.jpg'
+
 
 class Com_phim extends React.Component{
     constructor(props){

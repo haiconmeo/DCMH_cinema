@@ -12,6 +12,7 @@ urlpatterns = [
     path('dichvu/<int:pk>', views.Dichvu_detail),
     path('user/', views.User_list),
     # path('rap_phim_list',views.rap_phim_list),
+    path('auth/profile',views.profile_list),
     path('auth/register/', RegisterAPI.as_view()),
     path('auth/login/', LoginAPI.as_view()),
     path('auth/user/', UserAPI.as_view()),

@@ -1,10 +1,20 @@
 select {
-    width: 50%;
-    margin-left: -5%;
+    text-align: center;
+    width: 25%;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     background-color: #f1f1f1;
+}
+
+option {
+    text-align: center;
+}
+
+#select-cc {
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
 }
 
 

@@ -6,7 +6,7 @@ import Thongtinchitiet from './Thongtinchitiet.js'
 import Select_rap from './Select_rap.js'
 import Banggia from './Banggia.js'
 import Banggia2 from './Banggia2.js'
-import ListComic from './Com_phim.js'
+import ListComic from './Com_phim_2.js'
 import SlideShow from './SlideShow.js'
 import Footer from '../Footer/Footer.js';
 class Nhap extends React.Component{
@@ -95,4 +95,4 @@ class Nhap extends React.Component{
     }
   }
   }
-  export default connect(mapStateToProps,mapDispatchToProps)(Nhap);  
+  export default connect(mapStateToProps,mapDispatchToProps)(Nhap);

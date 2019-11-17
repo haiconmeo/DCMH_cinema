@@ -31,45 +31,29 @@ export default class Phim extends React.Component {
 
     render() {
         // let { path, url } = useRouteMatch();
-        return ( <
-            div className = "Phim" >
-            <
-            div className = "slide" >
-            <
-            p className = "td" > phim hot tại rạp < /p>
+        return ( <div className = "Phim" >
+            <div className = "slide" >
+            <p className = "td"> phim hot tại rạp </p>
 
-            <
-            SlideShow input = { collection }
-            ratio = { `9:3` }
-            mode = { `automatic` }
-            timeout = { `3000` }
-            /> <
-            /div> <
-            div className = "tl" >
-            <
-            h1 className = "l" > Phim đang chiếu < /h1> <
-            /div>
+            <SlideShow input = { collection } ratio = { `9:3` }  mode = { `automatic` } timeout = { `3000` } /> 
+            
+            </div>
+             <div className = "tl">
+            <h1 className = "l" > Phim đang chiếu </h1> 
+            </div>
 
-            <
-            div className = "list" >
-            <
-            Phimdc / >
-            <
-            /div>
+            <div className = "list" >
+            <Phimdc/>
+            </div>
 
-            <
-            div className = "tl" >
-            <
-            h1 className = "l" > Phim sắp chiếu < /h1> <
-            /div> <
-            div className = "list" >
-            <
-            Phimsc / >
-            <
-            /div> <
-            Footer / >
-            <
-            /div>
+            <div className = "tl">
+            <h1 className = "l" > Phim sắp chiếu </h1> 
+            </div>
+             <div className = "list" >
+            <Phimsc/>
+            </div> 
+            <Footer/>
+            </div>
         );
     }
 }

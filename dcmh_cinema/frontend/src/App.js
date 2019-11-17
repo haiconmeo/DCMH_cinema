@@ -8,13 +8,13 @@ import Contact from './Contact/Contact.js'
 import Phimct from './Movie/Phimct.js'
 import Register from './register/Register.js'
 import Login from './Login/Login.js'
-
+import {get_phimAPI} from './actions/phim';
 import {connect} from "react-redux";
 
 import { BrowserRouter, Redirect} from 'react-router-dom';
 
 import {auth} from "./actions";
-import Nhap from './rap/Nhap.js'
+import Nhap from './rap/Rap_nhap';
 import Khuyenmai  from './Khuyenmai/Khuyenmai.js';
 import EventDetail from './Khuyenmai/EventDetail.js';
 // import Phimdel from './Movie/Phimdel.js'
@@ -33,10 +33,7 @@ import {
 
 
 class App extends React.Component {
-  componentDidMount() {
-    this.props.loadUser();
-   //console.log(this.props.username);
-}
+
   
   PrivateRoute = ({component: ChildComponent, ...rest}) => {
     return <Route {...rest} render={props => {
@@ -49,9 +46,12 @@ class App extends React.Component {
         }
     }} />
 }
-  show=()=>{
-    alert(this.props.user.username)
-  }
+componentDidMount() {
+  this.props.loadUser();
+
+
+}
+ 
   render(){
     
     
@@ -88,15 +88,16 @@ class App extends React.Component {
           <div className= "menu">
             <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/mua-ve">MUA VÉ</Link>
             <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/phim">PHIM</Link>
-            <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/rap">RẠP</Link>
+            <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/rap/1">RẠP</Link>
             <Link className="content" to="/khuyenmai">KHUYẾN MÃI</Link>
           </div>
         <Switch>
           <Route exact path="/"><Home/></Route>
-          {/* <Route path="/mua-ve"><Muave/></Route> */}
-          <PrivateRoute path="/profile" component={Profile}/>
+         
+          <PrivateRoute path="/profile" component={Profile}  />
           <Route path="/phim"><Phim/></Route>
-          <Route path="/rap"><Nhap/></Route>
+          {/* <Route path="/rap/:id"><Nhap /></Route> */}
+          <Route path='/rap/:id' exact component={Nhap}/>   
           <Route exact path="/khuyenmai"><Khuyenmai/></Route>
           <Route path="/khuyenmai/:id"><EventDetail/></Route>
           <Route path="/About"><About/></Route>
@@ -137,6 +138,7 @@ class Login_home extends React.Component{
 
   const mapStateToProps = state => {
     return {
+      // Rap_start:state.phim_rap,
       auth: state.auth,
       username : state.auth.user,
       isAuthenticated: state.auth.isAuthenticated
@@ -148,7 +150,9 @@ class Login_home extends React.Component{
       loadUser: () => {
         return dispatch(auth.loadUser());
       },
-      logout: () => dispatch(auth.logout()),
+      logout: () => dispatch(auth.logout())
+      // get_phimAPI:(id_rap)=>{dispatch(get_phimAPI(id_rap))
+      
     }
   }
   

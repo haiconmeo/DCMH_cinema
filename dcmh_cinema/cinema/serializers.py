@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from cinema.models import Phim,Anh,BookVe,DichVu,Rap,Ve
+from cinema.models import Phim,Anh,BookVe,DichVu,Rap,Ve,Profile
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
@@ -20,14 +20,7 @@ class DichVuSerializer(serializers.ModelSerializer):
     class Meta:
         model = DichVu
         fields = '__all__'
-class RapSerializer(serializers.ModelSerializer):
-    # image_rap = serializers.RelatedField(source='AnhRap', read_only=True)
-    # anhs = serializers.StringRelatedField(queryset=Anh.objects.all(), many=True)
-    anhs = serializers.StringRelatedField(read_only=True,many=True)
-    phims= serializers.StringRelatedField(read_only=True,many=True)
-    class Meta:
-        model = Rap
-        fields = '__all__'
+
 
 class VeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -41,11 +34,19 @@ class VeSerializer(serializers.ModelSerializer):
 class PhimSerializer(serializers.ModelSerializer):
     anhphim = serializers.StringRelatedField(read_only=True,many=True)
     class Meta:
-
+      
       model = Phim
       # tam = Anh.objects.order_by('id')
       # print (tam)
       fields  ='__all__'
+class RapSerializer(serializers.ModelSerializer):
+    # image_rap = serializers.RelatedField(source='AnhRap', read_only=True)
+    # anhs = serializers.StringRelatedField(queryset=Anh.objects.all(), many=True)
+    anhs = serializers.StringRelatedField(read_only=True,many=True)
+    phims= PhimSerializer(many=True, read_only=True)
+    class Meta:
+        model = Rap
+        fields = '__all__'
 class AnhSerializer(serializers.ModelSerializer):
     Rap_list = RapSerializer(many=True, read_only=True)
     Phim_list = PhimSerializer(many=True,read_only=True)
@@ -62,6 +63,9 @@ class AnhSerializer(serializers.ModelSerializer):
 #         model = Rap_phim_list
 #         fields  = '__all__'
 
+    # def create(self,validated_data):
+    #   pro=Profile.objects.create(validated_data['user'],validated_data['phonenum'],validated_data['address'],validated_data['birth_date'],validated_data['cmmd'])
+    #   return pro
 class phim_anhSerializer(serializers.ModelSerializer):
   Phim_list = PhimSerializer(many=True,read_only=True)
   Anh_list = AnhSerializer(many=True,read_only=True)
@@ -102,3 +106,8 @@ class LoginSerializer(serializers.Serializer):
     if user and user.is_active:
       return user
     raise serializers.ValidationError("Incorrect Credentials")
+class profileSerializer(serializers.ModelSerializer):
+  user=UserSerializer( read_only=True)
+  class Meta:
+    model= Profile
+    fields = '__all__'
