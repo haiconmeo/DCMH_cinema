@@ -33,13 +33,14 @@ import {
 
 
 class App extends React.Component {
-
+  constructor(props){
+    super(props);
+    this.props.loadUser();
+  }
   
   PrivateRoute = ({component: ChildComponent, ...rest}) => {
     return <Route {...rest} render={props => {
-        if (this.props.auth.isLoading) {
-            return <em>Loading...</em>;
-        } else if (!this.props.auth.isAuthenticated) {
+        if (!this.props.isAuthenticated) {
             return <Redirect to="/login" />;
         } else {
             return <ChildComponent {...props} />
@@ -93,8 +94,10 @@ componentDidMount() {
           </div>
         <Switch>
           <Route exact path="/"><Home/></Route>
-         
+          { this.props.isAuthenticated && 
           <PrivateRoute path="/profile" component={Profile}  />
+          
+          }
           <Route path="/phim"><Phim/></Route>
           {/* <Route path="/rap/:id"><Nhap /></Route> */}
           <Route path='/rap/:id' exact component={Nhap}/>   

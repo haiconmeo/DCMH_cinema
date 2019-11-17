@@ -8,6 +8,7 @@ import Food from './food-reducer';
 import plus from './plus.js';
 import val from './value-reducer.js';
 import selectfood from './selectfood.js';
+import Userinfor from './profile_detail'
 
 const myreducer = combineReducers({
     auth,
@@ -19,6 +20,8 @@ const myreducer = combineReducers({
     plus: plus,
     val: val,
     selectfood: selectfood,
+    Userinfor,
+
 })
 
 export default myreducer;

@@ -37,23 +37,23 @@ class Profile_detail extends React.Component{
                 <input className="profile-detail-input" type="text" 
                  onChange={e => this.setState({: e.target.value})}/> <br/> */}
                 <label htmlFor="">ngay sinh</label><br/>
-                <input className="profile-detail-input" type="text"
-                onChange={e => this.setState({birth_date: e.target.value})}/><br/>
+                <input className="profile-detail-input" type="text" placeholder = {this.props.UD.birth_date}
+                onChange={e => this.setState({birth_date: e.target.value}) }/><br/>
                 {/* <label htmlFor="">Email</label><br/>
                 <input className="profile-detail-input" type="text"
                 onChange={e => this.setState({: e.target.value})}/><br/> */}
                 <label htmlFor="">Dia chi</label><br/>
-                <input className="profile-detail-input" type="text"
+                <input className="profile-detail-input" type="text" placeholder = {this.props.UD.address}
                 onChange={e => this.setState({address: e.target.value})}/><br/>
                 
             </div>
             <div className="user_detail_right">
                 
                 <label htmlFor=""> so dien thoai</label><br/>
-                <input className="profile-detail-input" type="text"
+                <input className="profile-detail-input" type="text" placeholder = {this.props.UD.phonenum}
                 onChange={e => this.setState({phonenum: e.target.value})}/><br/>
                 <label htmlFor="">so chung minh nhan dan</label><br/>
-                <input className="profile-detail-input" type="text"
+                <input className="profile-detail-input" type="text" placeholder = {this.props.UD.cmmd}
                 onChange={e => this.setState({cmmd: e.target.value})}/><br/>
                 {/* <label htmlFor=""> gioi tinh</label> <br/>
                 <input type="radio" name ="gioitinh" value= "nam"/>Nam

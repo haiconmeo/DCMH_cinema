@@ -200,7 +200,7 @@ def profile_detail(request, pk):
     Retrieve, update or delete a Rap instance.
     """
     try:
-        profile = Profile.objects.get(pk=pk)
+        profile = Profile.objects.get(user=pk)
     except rap.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
