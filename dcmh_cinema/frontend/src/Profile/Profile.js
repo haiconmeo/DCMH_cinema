@@ -17,12 +17,13 @@ class Profile extends React.Component {
   constructor(props){
     super(props)
     this.props.loadUser();
-    console.log(this.props.id)
-    this.props.get_userInfor(this.props.id)
+    console.log("tam:",this.props.id)
+    this.props.get_userInfor(this.props.username.id)
     
   }
 
     render(){
+      console.log("tam:",this.props.username.id)
       console.log("component:",this.props.userinfor)
         return(
             <div className="profile">
@@ -76,7 +77,7 @@ class Profile extends React.Component {
       },
       logout: () => dispatch(auth.logout()),
       
-      get_userInfor :()=>dispatch(get_userInfor())
+      get_userInfor :(id)=>dispatch(get_userInfor(id))
     }
     
   }

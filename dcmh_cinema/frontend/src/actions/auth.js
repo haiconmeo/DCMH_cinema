@@ -132,8 +132,8 @@ export const profile = (user, birth_date, phonenum, address, cmmd) => {
     return (dispatch, getState) => {
         let headers = { "Content-Type": "application/json" };
         let body = JSON.stringify({ user, birth_date, phonenum, address, cmmd });
-        console.log(body)
-        return fetch("http://localhost:8000/api/auth/profile", { headers, body, method: "POST" })
+        console.log("bode:", body)
+        return fetch("http://localhost:8000/api/auth/profile/" + user.id, { headers, body, method: "PUT" })
             .then(res => {
                 if (res.status < 500) {
                     return res.json().then(data => {

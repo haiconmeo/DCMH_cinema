@@ -14,6 +14,7 @@ class Profile_detail extends React.Component{
             address:'',
             cmmd:''
         }}
+        //alert(this.props.UD)
     }
     onSubmit = e => {
       // this.setState({
@@ -21,29 +22,27 @@ class Profile_detail extends React.Component{
       // // });
           e.preventDefault();
       
-      this.props.profile(this.state.birth_date, this.state.phonenum,this.state.address,this.state.cmmd);
+      this.props.profile(this.props.UD.user,this.state.birth_date, this.state.phonenum,this.state.address,this.state.cmmd);
+      console.log("profile edit:",this.props.UD.user,this.state.birth_date, this.state.phonenum,this.state.address,this.state.cmmd);
       
   }
   componentDidMount() {
-    // this.props.loadUser();
-   //console.log(this.props.username);
+   console.log("test profile :",this.props.UD)
+   
 }
     render(){
+      // document.getElementById("birth").value=this.props.UD.birth_date
       return(
         <form className= "profiledetail" onSubmit={this.onSubmit}>
             <h2 id ="user_detail">tai khoan</h2>
             <div className="user_detail_left">
-                {/* <label htmlFor="">Ho va ten</label><br/>
-                <input className="profile-detail-input" type="text" 
-                 onChange={e => this.setState({: e.target.value})}/> <br/> */}
+               
                 <label htmlFor="">ngay sinh</label><br/>
-                <input className="profile-detail-input" type="text" placeholder = {this.props.UD.birth_date}
+                <input className="profile-detail-input" id ="birth" type="text" value = {this.props.UD.birth_date}
                 onChange={e => this.setState({birth_date: e.target.value}) }/><br/>
-                {/* <label htmlFor="">Email</label><br/>
-                <input className="profile-detail-input" type="text"
-                onChange={e => this.setState({: e.target.value})}/><br/> */}
+          
                 <label htmlFor="">Dia chi</label><br/>
-                <input className="profile-detail-input" type="text" placeholder = {this.props.UD.address}
+                <input className="profile-detail-input"  type="text" placeholder = {this.props.UD.address}
                 onChange={e => this.setState({address: e.target.value})}/><br/>
                 
             </div>
@@ -69,39 +68,15 @@ class Profile_detail extends React.Component{
     };
   }
 
-//   const mapStateToProps = state => {
-//     let errors = [];
-//     if (state.auth.errors) {
-//         errors = Object.keys(state.auth.errors).map(field => {
-//             return {field, message: state.auth.errors[field]};
-//         });
-//     }
-//     return {
-//         errors,
-//         isAuthenticated: state.auth.isAuthenticated
-//     };
-// }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//       profile: (user, birth_date,phonenum,address,cmmd) => { 
-//             return dispatch(auth.profile(user, birth_date,phonenum,address,cmmd));
-//         }
-//     };
-// }
 const mapStateToProps = state => {
   return {
-    // auth: state.auth,
-    // username : state.auth.user,
-    // isAuthenticated: state.auth.isAuthenticated
+   
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    // loadUser: () => {
-    //   return dispatch(auth.loadUser());
-    // },
+   
     profile: (user, birth_date,phonenum,address,cmmd) => { 
       return dispatch(auth.profile(user, birth_date,phonenum,address,cmmd));
   }
