@@ -25,19 +25,19 @@ class Home extends React.Component{
                             <div className="tren">
                                 <div className="o-vuong-mot">
                                     <div className="o-thu-nhat">
-                                        <Link to="/"><img src="http://www.lottecinemavn.com/Media/Event/01b270f9357d4671af48f908e6ddcb3e.jpg"/></Link>
+                                        <Link to="/khuyenmai/1"><img src="http://www.lottecinemavn.com/Media/Event/1dcecc9490b141c997cb6bfd20efb5f8.jpg"/></Link>
                                     </div>
                                     <div className="o-thu-ba">
-                                        <Link to="/"><img src="http://www.lottecinemavn.com/Media/Event/25a7496178b048fbabe3e97e412d0397.png"/></Link>
+                                        <Link to="/khuyenmai/3"><img src="http://www.lottecinemavn.com/Media/Event/252ecba6c6ce4197b46371cfbe6759b0.jpg"/></Link>
                                     </div>
                                 </div>
 
                                 <div className="o-vuong-hai">
                                     <div className="o-thu-hai">
-                                        <Link to="/"><img style={{height: "180px", width: "315px" }} src="http://www.lottecinemavn.com/Media/Event/90875ea775ce4d73bf501003cd77f47b.jpg"/></Link>
+                                        <Link to="/khuyenmai/2"><img style={{height: "180px", width: "315px" }} src="http://www.lottecinemavn.com/Media/Event/7300f52c5df642eab3ed080c54e0b031.jpg"/></Link>
                                     </div>
                                     <div className="o-thu-tu">
-                                        <Link to="/"><img style={{height: "283px", width: "315px" }} src="http://www.lottecinemavn.com/Media/Event/102893cf9df54536be979fdd1f0cc99f.jpg"/></Link>
+                                        <Link to="/khuyenmai/4"><img style={{height: "283px", width: "315px" }} src="http://www.lottecinemavn.com/Media/Event/c71dfbc09e49463fb346734e066fd133.jpg"/></Link>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@ class Home extends React.Component{
 
                         <div className="ben-phai">
                             <div className="phai-mot">
-                                <Link to="/"><img style={{height: "231px", width: "300px" }} src="http://www.lottecinemavn.com/Media/Event/229444dc60c44f55964a682bbbefce25.jpg"/></Link>
+                                <Link to="/khuyenmai/5"><img style={{height: "231px", width: "300px" }} src="http://www.lottecinemavn.com/Media/Event/5ffc6a405e8e4e0f8ccfd56b2348d1a4.jpg"/></Link>
                             </div>
                             <div className="phai-hai">
                                 <Link to="/"><img style={{height: "463px", width: "300px" }} src="http://www.lottecinemavn.com/Media/Event/3b39fb3f0b23422a89a172392714cb95.jpg"/></Link>

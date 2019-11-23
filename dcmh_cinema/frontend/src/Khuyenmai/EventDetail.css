@@ -8,15 +8,15 @@
 
 .eventDetail h1 {
     padding-bottom: 20px;
-    margin: 0 10% 0 10%;
+    margin: 0 auto;
 }
 
 .eventDetail p {
-    margin: 0 10% 0 10%;
+    margin: 0 auto;
 }
 
 .eventDetail img {
-    margin: 0 10% 0 10%;
+    margin: 0 auto;
     padding: 0;
     padding-left: 0;
     padding-bottom: 20px;

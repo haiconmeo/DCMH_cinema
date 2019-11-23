@@ -17,7 +17,7 @@ class Profile extends React.Component {
   constructor(props){
     super(props)
     this.props.loadUser();
-    console.log("tam:",this.props.id)
+    
     this.props.get_userInfor(this.props.username.id)
     
   }
@@ -28,15 +28,15 @@ class Profile extends React.Component {
         return(
             <div className="profile">
               
-              <h1>{this.props.id}</h1>
+              <h1>{this.props.username.id}</h1>
                 <div className ="left_profile">
                 
-                    <Link className="taikhoan" to="/profile">Tai Khoan</Link>
+                    <Link className="taikhoan" to="/profile">Tài Khoản</Link>
                     <ul>
-                        <li><Link className="pro_content" to="/profile">Thong tin tai khoan</Link></li>
-                        <li><Link className="pro_content" to="/profile/resetpass">Thay doi mat khau</Link></li>
-                        <li><Link className="pro_content" to="/profile/member_card">Thong tin tai khoan the</Link></li>
-                        <li><Link className="pro_content" to="/profile/transaction_history">Lich su giao dich online</Link></li>
+                        <li><Link className="pro_content" to="/profile">Thông tin tài khoản</Link></li>
+                        <li><Link className="pro_content" to="/profile/resetpass">Thay đổi mật khẩu</Link></li>
+                        <li><Link className="pro_content" to="/profile/member_card">Thông tin thẻ</Link></li>
+                        <li><Link className="pro_content" to="/profile/transaction_history">Lịch sử giao dịch</Link></li>
 
                     </ul>
                     
@@ -44,7 +44,7 @@ class Profile extends React.Component {
                 </div>
                 <div className="right_profile">
                 <Switch>
-                    <Route exact path="/profile"><Profile_detail  UD={this.props.userinfor}/></Route>
+                    <Route exact path="/profile"><Profile_detail  UD={this.props.username}/></Route>
                     <Route path="/profile/resetpass"><Resetpass/></Route>
                     <Route path="/profile/member_card"><Member_card/></Route>
                     <Route path="/profile/transaction_history"><Tran_history/></Route>

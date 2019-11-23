@@ -1,9 +1,8 @@
-.Phim {
+.Phim{
     margin: 0;
     padding: 0;
 }
-
-.td {
+.td{
     font-weight: bold;
     font-variant: small-caps;
     font-size: 130%;
@@ -12,14 +11,14 @@
     background: #b8e994;
     margin-bottom: -1px;
     text-align: center;
+    margin-top: -20px;
 }
 
-.tl {
+.tl{
     height: 50px;
     margin: 5% 20% 1% 20%;
 }
-
-.l {
+.l{
     margin: 10px;
     font-weight: bold;
     text-decoration: none;
@@ -28,7 +27,66 @@
     margin-bottom: 20px;
     font-size: 20px;
 }
-
-.list {
+.list{
     margin-top: 30px;
+}
+
+.phim-detail{
+    text-align: center;
+}
+.video{
+    margin: 0% 10% 3% 10%;
+}
+.image-detail{
+    float: left;
+    margin-left: 15%; 
+    margin-bottom: 5%;
+}
+.image-detail button{
+    width: 80%;
+    margin-top: 10px;
+    padding: 10px 0px;
+    background: none;
+    border: 1px solid;
+    font-size: 18px;
+    color: #fff;
+    background: #2f3542 ;
+} 
+.thongtin-detail{
+    float: left;
+    text-align: left; 
+    margin-top: 0%;
+    font-family: 'Arial', 'Helvetica', 'sans-serif';
+}
+.thongtin-detail h1{
+    font-size: 130%;
+}
+.thongtin-detail ul li{
+    list-style: none;
+    line-height: 30px;
+}
+.image-resp{
+    width: 80%;
+    height: auto;
+}
+.chitiet-detail{
+    max-height: 200px;
+    clear: left;
+    margin: 10% 7%;
+    text-align: justify;
+    margin-top: 10%;
+}
+.chitiet-detail h1{
+    font-size: 150%;
+    margin-bottom: 20px;
+}
+
+@media screen and ( width: 500px){
+    .image-resp, .image-detail button{
+        width: 50%;
+        height: auto;
+    }
+    .image-detail{
+        margin-left: 10%; 
+    }
 }

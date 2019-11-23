@@ -5,24 +5,15 @@ import Phimdc from './Phimdc.js'
 import Phimsc from './Phimsc.js'
 import Footer from '../Footer/Footer.js'
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams,
-    useRouteMatch
-} from "react-router-dom";
-
 
 const collection = [
-    { src: '/img/01.jpg' },
-    { src: '/img/02.jpg' },
-    { src: '/img/03.jpg' },
-    { src: '/img/04.jpg' },
-    { src: '/img/05.jpg' },
-    { src: '/img/06.jpg' },
-];
+    { src: 'https://galaxycine.vn/media/2019/11/21/frozen-2048x682_1574330232962.jpg'},
+    { src: 'https://galaxycine.vn/media/2019/11/8/psm-kc-2048x682_1573179322986.jpg'},
+    { src: 'https://galaxycine.vn/media/2019/11/21/ngoc-oi-2048x682_1574330128684.jpg'},
+    { src: 'https://galaxycine.vn/media/2019/10/28/banner-2048x682_1572251405462.jpg'},
+    { src: 'https://galaxycine.vn/media/2019/11/8/dr-kc-2048x682_1573179309543.jpg'},
+    { src: 'https://galaxycine.vn/media/2019/11/1/banner-2048x682_1572600297999.jpg'}, 
+  ];
 
 export default class Phim extends React.Component {
     constructor(props) {

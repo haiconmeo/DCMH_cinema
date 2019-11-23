@@ -1,5 +1,11 @@
 import React from 'react';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
 import { connect } from 'react-redux';
 import {get_tenrap} from '../actions/test';
 import {get_phimAPI} from '../actions/phim';
@@ -9,6 +15,7 @@ import Footer from '../Footer/Footer.js';
 import Giave from '../Datve/giave';
 import Com_phim_2 from './Com_phim_2.js';
 import './Rap_nhap.css'
+import {datve} from '../actions/datve'
 const collection = [
   { src: '/img/01.jpg' },
   { src: '/img/02.jpg' },
@@ -20,7 +27,7 @@ const collection = [
 class Rap extends React.Component{
     constructor(props){
         super(props)
-        this.state = {isToggleOn: true,value_select:'',};
+        this.state = {isToggleOn: true,value_select:'',rapid:'',phim_id:'',giochieu:''};
         this.props.get_phimAPI(this.props.match.params.id);
         this.props.get_tenrap(); 
         
@@ -40,6 +47,7 @@ class Rap extends React.Component{
       myFunction =(e) =>{
         this.props.history.push(`/rap/${e.target.value}`);
         this.props.get_phimAPI(e.target.value);
+        this.setState({rapid: e.target.value})
      
         
       }
@@ -57,33 +65,51 @@ class Rap extends React.Component{
       componentDidMount()
       {
           console.log(this.props.match.params.id)
-          
+          this.setState({rapid: this.props.match.params.id})
           
       }
       show_phim(){
-        
-        var result= [];
-        
-          for(var i = 0; i < this.props.ten_phimAPI.length; i++)
-          {
-            result.push(
+         
+        { 
+          var listItems =this.props.ten_phimAPI.map(i => (
+          <div className="grid-container">
+          <div className="grid-item_1"><img src={i.anhphim} width="230px" /></div>
+            <div className="grid-item">
+            <Link  style={{textDecoration: 'none'}} to ={`/phim-detail/${i.id}`}>  <h3>{i.phim_ten}</h3> </Link>
+               <p className='M_p'>nước phát hành :{i.phim_nuocphathanh}</p>
+              <p className='M_p'>thể loại:{i.phim_theloai}</p>
+              <p className='M_p'>chọn gio xem phim</p>
+              <button   className="M_button" onClick={() =>{ this.setState({phim_id:i.id});this.setState({giochieu:'16:00'});this.props.datve(this.state.rapid,this.state.phim_id,this.state.giochieu);}}>16:00</button>
+              <button  className="M_button" onClick={() =>{ this.setState({phim_id:i.id});this.setState({giochieu:'20:00'});this.props.datve(this.state.rapid,this.state.phim_id,this.state.giochieu)}}>20:00</button>
+              <p></p>
+              <Link to="/dat-ve" className="M_button" onClick={()=>this.props.datve(this.state.rapid,this.state.phim_id,this.state.giochieu)}>Đặt vé</Link>
+            </div>       
+          </div>
+
+          
+      ));
+    return listItems
+  }
+        //   for(var i = 0; i < this.props.ten_phimAPI.length; i++)
+        //   {
+        //     result.push(
               
-              <div className="grid-container">
-                <div className="grid-item_1"><img src={this.props.ten_phimAPI[i].anhphim[0]} width="230px" /></div>
-                  <div className="grid-item">
-                    <h3>{this.props.ten_phimAPI[i].phim_ten}</h3>
-                     <p className='M_p'>nước phát hành :{this.props.ten_phimAPI[i].phim_nuocphathanh}</p>
-                    <p className='M_p'>thể loại:{this.props.ten_phimAPI[i].phim_theloai}</p>
-                    <p className='M_p'>chọn h xem phim</p>
-                    <button className="M_button">19:00</button>
-                    <button className="M_button">20:00</button>
-                  </div>       
-                </div>
+        //       <div className="grid-container">
+        //         <div className="grid-item_1"><img src={this.props.ten_phimAPI[i].anhphim} width="230px" /></div>
+        //           <div className="grid-item">
+        //           <Link  style={{textDecoration: 'none'}} to ={`/phim-detail/${this.props.ten_phimAPI[i].id}`}>  <h3>{this.props.ten_phimAPI[i].phim_ten}</h3> </Link>
+        //              <p className='M_p'>nước phát hành :{this.props.ten_phimAPI[i].phim_nuocphathanh}</p>
+        //             <p className='M_p'>thể loại:{this.props.ten_phimAPI[i].phim_theloai}</p>
+        //             <p className='M_p'>chọn gio xem phim</p>
+        //             <Link  to="/dat-ve" className="M_button" onClick={() =>{ this.setState({phim_id:this.props.ten_phimAPI[i].id});this.setState({giochieu:'16:00'})}}>16:00</Link>
+        //             <button className="M_button" onClick={() =>{ this.setState({giochieu:'12:00'})}}>20:00</button>
+        //           </div>       
+        //         </div>
                 
-            )
-          }
+        //     )
+        //   }
         
-        return result;
+        // return result;
       }
 
     render(){        
@@ -119,7 +145,7 @@ class Rap extends React.Component{
                 </div>
               </div>
 
-
+                <p>{this.state.phim_id}</p>
             <div className = "list">
               
                 <h1 className = "l" > Thông tin rap </h1> 
@@ -162,7 +188,9 @@ const mapStateToProps = (state) =>{
     },
     get_phimAPI:(id_rap)=>{
       dispatch(get_phimAPI(id_rap))
-    }
+    },
+    datve:(rapchieu,phimchieu,giochieu) =>
+    dispatch(datve(rapchieu,phimchieu,giochieu)),
   }
   }
   export default connect(mapStateToProps,mapDispatchToProps)(Rap);

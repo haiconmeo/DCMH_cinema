@@ -17,25 +17,35 @@ import {auth} from "./actions";
 import Nhap from './rap/Rap_nhap';
 import Khuyenmai  from './Khuyenmai/Khuyenmai.js';
 import EventDetail from './Khuyenmai/EventDetail.js';
-// import Phimdel from './Movie/Phimdel.js'
+import Phimdel from './Movie/Phimdel.js'
 import Profile from './Profile/Profile'
 import Datve from './Datve/Datve.js'
 import Thanhtoan from './Datve/thanhtoan.js';
-import Giave from './Datve/giave.js';
-// import Muave from './Datve/Muave'
+import Done from './Datve/Done.js';
+import Muave from './Datve/Muave';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useParams
 } from "react-router-dom";
 
 
 class App extends React.Component {
   constructor(props){
     super(props);
+    this.state ={
+      select1: true,
+      select2: true,
+      select3: true,
+      select4: true,
+
+    }
     this.props.loadUser();
+    this.selectbox1 = this.selectbox1.bind(this);
+    this.selectbox2= this.selectbox2.bind(this);
+    this.selectbox3 = this.selectbox3.bind(this);
+    this.selectbox4 = this.selectbox4.bind(this);
   }
   
   PrivateRoute = ({component: ChildComponent, ...rest}) => {
@@ -47,10 +57,32 @@ class App extends React.Component {
         }
     }} />
 }
-componentDidMount() {
-  this.props.loadUser();
-
-
+selectbox1() {
+  this.setState({select1: false,
+    select2: true,
+    select3: true,
+    select4: true,});
+}
+selectbox2() {
+  this.setState({
+    select1: true,
+      select3: true,
+      select4: true,
+    select2: false
+  });
+}
+selectbox3() {
+  this.setState({select3: false,
+    select1: true,
+    select2: true,
+    select4: true,});
+}
+selectbox4() {
+  this.setState({select4: false,
+    select1: true,
+    select2: true,
+    select3: true,
+});
 }
  
   render(){
@@ -87,10 +119,10 @@ componentDidMount() {
           </div>
 
           <div className= "menu">
-            <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/mua-ve">MUA VÉ</Link>
-            <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/phim">PHIM</Link>
-            <Link style={{borderRight:"2px solid #70a1ff"}} className="content" to="/rap/1">RẠP</Link>
-            <Link className="content" to="/khuyenmai">KHUYẾN MÃI</Link>
+            <Link style={{borderRight:"2px solid #70a1ff"}} className={ (this.state.select1 ? "content": "select-app" ) } onClick={this.selectbox1} to="/mua-ve">MUA VÉ</Link>
+            <Link style={{borderRight:"2px solid #70a1ff"}} className={ (this.state.select2 ? "content": "select-app" ) } onClick={this.selectbox2} to="/phim">PHIM</Link>
+            <Link style={{borderRight:"2px solid #70a1ff"}} className={ (this.state.select3 ? "content": "select-app" ) } onClick={this.selectbox3} to="/rap/1">RẠP</Link>
+            <Link  className={ (this.state.select4 ? "content": "select-app" ) } onClick={this.selectbox4}  to="/khuyenmai">KHUYẾN MÃI</Link>
           </div>
         <Switch>
           <Route exact path="/"><Home/></Route>
@@ -99,18 +131,18 @@ componentDidMount() {
           
           }
           <Route path="/phim"><Phim/></Route>
-          {/* <Route path="/rap/:id"><Nhap /></Route> */}
           <Route path='/rap/:id' exact component={Nhap}/>   
+          <Route exact path="/done"><Done/></Route>
           <Route exact path="/khuyenmai"><Khuyenmai/></Route>
           <Route path="/khuyenmai/:id"><EventDetail/></Route>
           <Route path="/About"><About/></Route>
           <Route path="/Contact"><Contact/></Route>
           <Route path="/login"><Login_home/></Route>
-          {/* <Route path="/phim-detail/:id"><Phimdel/></Route> */}
+          <Route path="/phim-detail/:id"><Phimdel/></Route>
           <Route path="/thanh-toan"><Thanhtoan/></Route>
           <Route path="/dat-ve"><Datve/></Route>
-          {console.log("day ne",this.props.username)}
           <Route path="/register"><Register/></Route>
+          <Route path="/mua-ve"><Muave/></Route>
         </Switch>
       </div>
       </Router>

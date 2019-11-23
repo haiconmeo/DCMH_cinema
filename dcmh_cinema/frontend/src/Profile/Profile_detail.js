@@ -2,6 +2,7 @@ import React from 'react';
 import './Profile_detail.css'
 import {auth} from "../actions";
 import {connect} from "react-redux";
+import {get_userInfor} from "../actions/profile_detail"
 class Profile_detail extends React.Component{
     constructor(props){
       super(props)
@@ -14,49 +15,45 @@ class Profile_detail extends React.Component{
             address:'',
             cmmd:''
         }}
-        //alert(this.props.UD)
+        this.props.get_userInfor(this.props.UD.id);
     }
     onSubmit = e => {
-      // this.setState({
-      //   items: store.getState().user,
-      // // });
+     
           e.preventDefault();
       
-      this.props.profile(this.props.UD.user,this.state.birth_date, this.state.phonenum,this.state.address,this.state.cmmd);
-      console.log("profile edit:",this.props.UD.user,this.state.birth_date, this.state.phonenum,this.state.address,this.state.cmmd);
+      this.props.profile(this.props.UD,this.state.birth_date, this.state.phonenum,this.state.address,this.state.cmmd);
+     
+      alert("thay ddooir thanh cong")
       
   }
-  componentDidMount() {
-   console.log("test profile :",this.props.UD)
-   
-}
+
+
     render(){
       // document.getElementById("birth").value=this.props.UD.birth_date
+      // alert("test profile :",this.props.UD.id)
       return(
         <form className= "profiledetail" onSubmit={this.onSubmit}>
-            <h2 id ="user_detail">tai khoan</h2>
+            <h2 id ="user_detail">Tài Khoản</h2>
             <div className="user_detail_left">
                
-                <label htmlFor="">ngay sinh</label><br/>
-                <input className="profile-detail-input" id ="birth" type="text" value = {this.props.UD.birth_date}
-                onChange={e => this.setState({birth_date: e.target.value}) }/><br/>
+                <label htmlFor="">Ngày sinh</label><br/>
+                <input className="profile-detail-input" id ="birth" type="text" 
+                onChange={e => this.setState({birth_date: e.target.value}) } /><br/>
           
-                <label htmlFor="">Dia chi</label><br/>
-                <input className="profile-detail-input"  type="text" placeholder = {this.props.UD.address}
+                <label htmlFor="">Địa chỉ</label><br/>
+                <input className="profile-detail-input"  type="text"
                 onChange={e => this.setState({address: e.target.value})}/><br/>
                 
             </div>
             <div className="user_detail_right">
                 
-                <label htmlFor=""> so dien thoai</label><br/>
-                <input className="profile-detail-input" type="text" placeholder = {this.props.UD.phonenum}
+                <label htmlFor=""> Số điện thoại</label><br/>
+                <input className="profile-detail-input" type="text"
                 onChange={e => this.setState({phonenum: e.target.value})}/><br/>
-                <label htmlFor="">so chung minh nhan dan</label><br/>
-                <input className="profile-detail-input" type="text" placeholder = {this.props.UD.cmmd}
+                <label htmlFor="">Số chứng minh nhân dân</label><br/>
+                <input className="profile-detail-input" type="text"
                 onChange={e => this.setState({cmmd: e.target.value})}/><br/>
-                {/* <label htmlFor=""> gioi tinh</label> <br/>
-                <input type="radio" name ="gioitinh" value= "nam"/>Nam
-                <input type="radio" name ="gioitinh" value= "nu"/>Nu <br/> */}
+                
             </div>
             <div className="clear_usre">
             </div>
@@ -70,7 +67,7 @@ class Profile_detail extends React.Component{
 
 const mapStateToProps = state => {
   return {
-   
+    Userinfor: state.Userinfor
   }
 }
 
@@ -79,7 +76,9 @@ const mapDispatchToProps = dispatch => {
    
     profile: (user, birth_date,phonenum,address,cmmd) => { 
       return dispatch(auth.profile(user, birth_date,phonenum,address,cmmd));
-  }
+  },
+  get_userInfor:(id) =>{ return dispatch(get_userInfor(id))}
+
   }
 }
 

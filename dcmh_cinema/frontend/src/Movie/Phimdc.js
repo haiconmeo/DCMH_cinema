@@ -1,57 +1,56 @@
 import React from 'react';
-import Phimct from './Phimct.js';
+import {connect} from 'react-redux';
+import {get_phimdc} from '../actions/phimdc.js';
 import './Phimct.css';
+import {
+    Link,
+  } from "react-router-dom";
 
-
-
-export default class Phimdc extends React.Component{
+class PhimdcList extends React.Component{
+    constructor(props){
+        super(props);
+        this.props.get_phimdc()
+    }
+    createPhimListItems(){
+        var listItems = this.props.phim.map(
+            (phimdc)=>{
+                if (phimdc.phim_trangthai==="đang phát hành"){
+                return(
+                    <div key={phimdc.img} className="Phimct">
+                        <Link to={`/phim-detail/${phimdc.id}`} target="_blank"><img src={phimdc.anhphim}></img></Link>
+                        <h1>{phimdc.phim_ten}</h1>
+                        <div className="ct">
+                            <p className="time">{phimdc.thoiluong} phút</p>
+                            <p className="date">{phimdc.phim_ngayphathanh}</p>
+                        </div>
+                    </div>
+                );
+                }
+               
+            }
+        );
+        return listItems;
+    }
     render(){
-
-        // const list = [
-        //     { img : "./img/phim3.jpg", name : "MALEFICENT 2", date: "18/10/2019", time: "120Phút"},
-        //     { img : "./img/phim2.jpg", name : "BIỆT ĐỘI BẤT HẢO", date: "11/10/2019", time: "115Phút"},
-        //     { img : "./img/phim1.jpg", name : "JOKER", date: "04/10/2019", time: "120Phút"},
-        //     { img : "./img/phim5.jpg", name : "ĐÀN ÔNG SONG TỬ", date: "11/10/2019", time: "120Phút"},
-        //     { img : "./img/phim4.jpg", name : "THẤT SƠN TÂM LINH", date: "09/10/2019", time: "105Phút"},
-        // ]
         return(
             <div className="Phimdc">
-                <div className="contact">
-                
-                    <div className="ds-1"> <Phimct
-                    img="/img/phim3.jpg"
-                    name="MALEFICENT 2"
-                    date="18/10/2019"
-                    time="120Phút"
-                    /></div>
-                    <div className="ds-1"> <Phimct
-                    img="/img/phim2.jpg"
-                    name="BIỆT ĐỘI BẤT HẢO"
-                    date="11/10/2019"
-                    time="115Phút"
-                    /> </div>
-                    <div className="ds-2"> <Phimct
-                    img="/img/phim1.jpg"
-                    name="JOKER"
-                    date="04/10/2019"
-                    time="120Phút"
-                    /> </div>
-                    <div className="ds-1"> <Phimct
-                    img="/img/phim5.jpg"
-                    name="ĐÀN ÔNG SONG TỬ"
-                    date="11/10/2019"
-                    time="120Phút"
-                    /> </div>
-                    <div className="ds-2"> <Phimct
-                    img="/img/phim4.jpg"
-                    name="THẤT SƠN TÂM LINH"
-                    date="09/10/2019"
-                    time="105Phút"
-                    /> </div>
-                </div>
-                
-               
+                <div className="contact">{this.createPhimListItems()}</div>
             </div>
         );
     }
 }
+
+const mapStateToProps = (state) =>{
+    return{
+        phim: state.phimdc
+    };
+}
+
+
+const mapDispatchToProps =(dispatch, props)=>({
+    get_phimdc: () => dispatch(get_phimdc())
+})
+
+let PhimcsContainer = connect(mapStateToProps, mapDispatchToProps)(PhimdcList);
+
+export default PhimcsContainer;

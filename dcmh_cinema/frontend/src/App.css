@@ -15,6 +15,17 @@
   background: #b8e994;
   height: 24px;
 }
+.select-app{
+  background: #70a1ff;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 1px 20px;
+  transition: .2s;
+  font-size: 20px;
+  color: #fff;
+}
 .top-right{
   float: right;
   margin-right: 4%;

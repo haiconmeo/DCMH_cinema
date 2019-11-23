@@ -2,11 +2,21 @@ from django.shortcuts import render
 from django.contrib.auth.models import User # de lay user
 from rest_framework.response import Response
 # Create your views here.
-from cinema.models import Anh,BookVe,DichVu,Phim,Rap,Ve,Profile
+from cinema.models import BookVe,DichVu,Phim,Rap,Profile
 from rest_framework import generics
-from cinema.serializers import AnhSerializer,BookVeSerializer,DichVuSerializer,PhimSerializer,RapSerializer,UserSerializer,VeSerializer,phim_anhSerializer,profileSerializer
+from cinema.serializers import BookVeSerializer,DichVuSerializer,PhimSerializer,Rap2Serializer,RapSerializer,UserSerializer,profileSerializer
 from rest_framework.decorators import api_view
 from rest_framework import status
+from  .pagination import CustomPagination
+
+from rest_framework import pagination
+from rest_framework.response import Response
+
+from rest_framework import generics
+import base64
+import os
+from django.core.files import File 
+
 
 @api_view(['GET', 'POST'])
 def rap_list(request):
@@ -57,6 +67,7 @@ def Phim_list(request):
         serializer = PhimSerializer(Phims,context={'request': request} ,many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
+        
         serializer = PhimSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -84,8 +95,9 @@ def Phim_detail(request, pk):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
+        
         phim.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)@api_view(['GET', 'POST'])
+        return Response(status=status.HTTP_204_NO_CONTENT)
 @api_view(['GET', 'POST'])
 def Dichvu_list(request):
     """
@@ -132,7 +144,9 @@ def User_list(request):
     """
     if request.method == 'GET':
         Users = User.objects.all()
+        pagination_class = CustomPagination
         serializer = UserSerializer(Users,context={'request': request} ,many=True)
+        
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = UserSerializer(data=request.data)
@@ -141,12 +155,12 @@ def User_list(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 @api_view(['GET', 'PUT', 'DELETE'])
-def User_detail(request, name):
+def User_detail(request, pk):
     """
     Retrieve, update or delete a Rap instance.
     """
     try:
-        us = User.objects.get(username=name)
+        us = User.objects.get(pk=pk)
     except us.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -164,21 +178,7 @@ def User_detail(request, name):
     elif request.method == 'DELETE':
         us.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-@api_view(['GET', 'POST'])
-def rap_phim_list(request):
-    """
-    List all Raps, or create a new Rap.
-    """
-    if request.method == 'GET':
-        Raps = Rap_phim_list.objects.all()
-        serializer = Rap_phim_listSerializer(Raps,context={'request': request} ,many=True)
-        return Response(serializer.data)
-    # elif request.method == 'POST':
-    #     serializer = RapSerializer(data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 @api_view(['GET', 'POST'])
 def profile_list(request):
     """
@@ -200,7 +200,7 @@ def profile_detail(request, pk):
     Retrieve, update or delete a Rap instance.
     """
     try:
-        profile = Profile.objects.get(user=pk)
+        profile = Profile.objects.get(pk=pk)
     except profile.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -219,4 +219,46 @@ def profile_detail(request, pk):
 
     elif request.method == 'DELETE':
         profile.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+#---------------
+@api_view(['GET', 'POST'])
+def rap_list2(request):
+    """
+    List all Raps, or create a new Rap.
+    """
+    if request.method == 'GET':
+        Raps = Rap.objects.all()
+        serializer = Rap2Serializer(Raps,context={'request': request} ,many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = Rap2Serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+@api_view(['GET', 'PUT', 'DELETE'])
+def Rap_detail2(request, pk):
+    """
+    Retrieve, update or delete a Rap instance.
+    """
+    try:
+        rap = Rap.objects.get(pk=pk)
+    except rap.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = Rap2Serializer(rap,context={'request': request})
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        serializer = Rap2Serializer(rap, data=request.data,context={'request': request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        rap.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

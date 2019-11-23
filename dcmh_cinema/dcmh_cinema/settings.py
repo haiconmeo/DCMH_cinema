@@ -48,9 +48,8 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.AllowAny',
     # ],
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 100
-
+    
+    
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -139,4 +138,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://localhost:8000',
     'http://localhost:8080',
+	'http://localhost:1602',
 )
+MEDIA_ROOT =  os.path.join(BASE_DIR, '') 
+MEDIA_URL = '/'

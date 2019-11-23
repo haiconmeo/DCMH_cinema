@@ -1,11 +1,12 @@
 .Phimct{
     text-align: center;
     border: 1px solid #fff;
-    box-shadow: 5px 5px 5px 5px #ecf0f1;
+    box-shadow: 5px 5px 5px 5px #2c3e50;
     /* max-width: 230px;  */
     /* max-width: 70%;
     max-height: 80%; */
-    padding: 10px;
+    margin: 10px;
+    padding: 20px;
     border-radius: 10px;
     
 }
@@ -18,17 +19,24 @@
     margin-top: -1px;
     margin-bottom: -1px;
 } */
-h1{
-    font-size: 16px;
+.Phimct h1{
+    font-size: 14px;
     margin: 5px 0px;
     height: 20px;
     max-height: 70%;
     line-height: 20px;
-
+    padding: 5px 0px;
 }
 .time{
-    border-right: 1px solid #2ecc71;
-    padding-right: 10px;
+    padding: 6px 20px;
+    border-radius: 40px 0px 10px 0px ;
+    background: #f1c40f;
+    color: #fff;
+    font-weight: bold;
+}
+.date{
+    color: #1e90ff ;
+    font-weight: bold;
 }
 .ct{
     border-top: 1px solid #2ecc71;
@@ -39,10 +47,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* max-width: 1200px; */
-    /* min-height: 100vh; */
     margin-bottom: 60px;
-
 }
 .contact{
     display: flex;
@@ -55,6 +60,7 @@ h1{
 .ds, .ds-1, .ds-2{
     margin: 15px;
     width: 230px;
+    max-width: 100%;
 }
 .contac{
     display: flex;
@@ -70,4 +76,19 @@ h1{
     .contact, .contac{
         flex-wrap: wrap;
     }  
+    .Phimct{
+        max-width: 200px;
+    }
+} 
+@media screen and ( max-width: 550px){
+    .contact, .contac{
+        justify-content: center;
+        max-width: 700px;
+        width: 50%;
+        left: 0;
+        right: 0;
+    }  
+    .ds, .ds-1, .ds-2{
+        width: 200px;
+    }
 } 

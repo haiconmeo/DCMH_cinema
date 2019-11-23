@@ -1,27 +1,33 @@
 import auth from "./auth";
 import listphim from "./phim"
 import comics from './test';
-import Pdangchieu from './pdangchieu-reducer';
-import Psapchieu from './psapchieu-reducer';
+import phimdc from './phimdc.js';
+import phimdel from './phimdel.js';
 import { combineReducers } from 'redux';
-import Food from './food-reducer';
-import plus from './plus.js';
-import val from './value-reducer.js';
-import selectfood from './selectfood.js';
-import Userinfor from './profile_detail'
+import products from './selectfood.js';
+import cart from './cart.js';
+import Userinfor from './profile_detail';
+import seat from './seat.js';
+import cartSeat from './cartSeat.js';
+import status from './status.js';
+import datve from './datve.js';
+import cartTotal from './cartTotal.js';
+
 
 const myreducer = combineReducers({
+    phimdc,
     auth,
     listphim,
     comics,
-    pdc: Pdangchieu,
-    psc: Psapchieu,
-    food: Food,
-    plus: plus,
-    val: val,
-    selectfood: selectfood,
+    products,
     Userinfor,
-
+    seat,
+    cart,
+    cartSeat,
+    status,
+    datve,
+    phimdel,
+    cartTotal,
 })
 
 export default myreducer;

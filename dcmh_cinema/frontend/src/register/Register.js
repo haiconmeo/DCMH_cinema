@@ -26,11 +26,11 @@ class Register extends  React.Component{
         onSubmit = e => {
             if (this.state.confirm===this.state.password){
                 e.preventDefault();
-                alert(this.state.username,this.state.email, this.state.password)
+                // alert(this.state.username,this.state.email, this.state.password)
             this.props.register(this.state.username,this.state.email, this.state.password);
             }
             else{
-                alert('loi roi ml')
+                alert('Nhập chưa đúng yêu cầu')
             }
             
         }

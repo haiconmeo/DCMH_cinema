@@ -10,7 +10,9 @@ import ListComic from './Com_phim_2.js'
 import SlideShow from './SlideShow.js'
 import Footer from '../Footer/Footer.js';
 class Nhap extends React.Component{
+  
     constructor(props){
+      
       super(props)
       this.state = {isToggleOn: true};
       this.props.get_tenrap();
@@ -39,6 +41,7 @@ class Nhap extends React.Component{
     return result;
   }
     render(){
+      console.log("helo",this.props.tenrap)
       return(
         <div className ="rap">
             <div classname="top">

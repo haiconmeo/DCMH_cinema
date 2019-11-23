@@ -1,7 +1,7 @@
 .left_profile {
     width: 25%;
     /* height: 200px; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     float: left;
     /* margin-left: 5%; */
 }
@@ -9,7 +9,7 @@
 .right_profile {
     width: 70%;
     height: 1500px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-left: 27%;
 }
 

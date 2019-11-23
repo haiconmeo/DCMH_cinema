@@ -5,7 +5,7 @@ import axios from 'axios';
 export const get_phimAPI = (tenrap_id) => {
     if (!tenrap_id) tenrap_id = 1;
     return dispatch => {
-        return axios.get('http://localhost:8000/api/rap/' + tenrap_id).then(data => {
+        return axios.get('http://localhost:8000/api/rap/' + tenrap_id+'/').then(data => {
 
             dispatch(returnListphim(data.data.phims))
         })

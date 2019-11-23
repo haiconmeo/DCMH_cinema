@@ -1,17 +1,17 @@
 .Food{
-    text-align: center;
     border: 1px solid #fff;
     margin: 20px;
-    padding: 20px;
+    padding: 2px;
     width: 200px;
     background: #fff;
     cursor: pointer;
+    
 }
 .list-food{
-    flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column
 }
 .Food p{
     display: inline-block;

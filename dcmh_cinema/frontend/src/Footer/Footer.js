@@ -11,7 +11,7 @@ class Footer extends React.Component{
     render(){
         return(
             <div className="Footer">
-                <img id ="food_img"src="../images/footer.jpg"/>
+                <img id ="food_img"src="https://www.lottecinemavn.com/Media/WebAdmin/2763528af9ac4a4fbef581f5db65e607.jpg"/>
                <div className="top">
                     <div className="gt">
                         <h1>Giới thiệu</h1>

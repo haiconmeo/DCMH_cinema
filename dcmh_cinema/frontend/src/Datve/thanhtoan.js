@@ -2,9 +2,27 @@ import React from 'react';
 import './thanhtoan.css'
 import Footer from '../Footer/Footer.js';
 import {Link} from "react-router-dom";
+import {connect} from 'react-redux';
 
-export default class Thanhtoan extends React.Component{
+ class Thanhtoan extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            tien:0,
+            tong:0,
+        }
+    }
     render(){
+        var {cartSeat} = this.props
+        if(cartSeat.length===0) 
+        console.log("loi")
+        else
+       console.log("total",cartSeat)
+       this.state.tong=cartSeat.length*75000;
+       this.props.cartFood.map(i=>{
+        this.state.tien +=i.product.gia;
+        this.state.tong +=i.product.gia;
+       })
         return(
             <div className="thanh-toan">
                 <div className="thanh-toan-top">
@@ -109,13 +127,27 @@ Quý khách cần hỗ trợ hoặc tư vấn về dịch vụ và các vấn đ
                 </div>
                 <div className="thanh-toan-sp"> 
                     <h1>Tổng tiền đơn hàng</h1>
-                    <p><b>Phim đặt trước:</b>     <h5>100.000đ</h5></p>
-                    <p><b>Mua hàng:</b>           <h5>100.000đ</h5></p>
-                    <p><b>Tổng tiền đơn hàng:</b> <h5>200.000đ</h5></p>
+                    <p><b>Phim đặt trước:</b>     <h5>150000đ</h5></p>
+                    <p><b>Mua hàng:</b>           <h5>100000đ</h5></p>
+                    <p><b>Tổng tiền đơn hàng:</b> <h5>250000đ</h5></p>
+                    <Link to="/done">
                     <button>Thanh toán</button>
+                    </Link>
+                    
                 </div>
                 <Footer/>
             </div>
         );
     }
 } 
+
+function  mapStateToProps(state) {
+    return {
+        cartSeat : state.cartSeat,
+        cartFood : state.cart,
+    };
+}
+
+let ThanhtoanContainer = connect(mapStateToProps)(Thanhtoan);
+
+export default ThanhtoanContainer;

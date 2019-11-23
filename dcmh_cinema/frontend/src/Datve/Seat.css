@@ -1,36 +1,54 @@
-
+*{
+  margin: 0;
+  padding: 0;
+}
 h1 {
   text-align: center;
 }
 
-.container {
+.container_seat {
   width: 500px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  padding-top: 10px;
 }
 
 .grid td {
-  width: 15px;
-  height: 15px;
+  width: 27px;
+  height: 20px;
   padding: 5px;
-  border: 2px solid orange;
-  border-radius: 50%;
   text-align: center;
   float: left;
   margin: 5px;
-  font-size: 10px;
   font-weight: bold;
 }
-
+.available{
+  width: 20px;
+  display: block;
+  border: 2px solid orange;
+  border-radius: 50%;
+  padding: 5px;
+}
 .grid td:hover {
   opacity: .7;
   cursor: pointer;
 }
 
 .reserved {
-  background: orange;
+  width: 20px;
+  display: block;
+  background:  orange;
+  border-radius: 50%;
+  padding: 5px;
   color: #fff;
-  display: inline-block;
 }
+/* .available {
+  color: #333;
+} */
 
 li {
   list-style: none;
@@ -38,19 +56,25 @@ li {
 
 @media screen and (width:500px){
   .grid td {
-    width: 5px;
-    height: 5px;
-    padding: 5px;
-    border: 2px solid orange;
+    width: 12px;
+    height: 12px;
+    padding: 10px;
     text-align: center;
     float: left;
-    margin: 5px 1px;
-    font-size: 5px;
+    margin: 5px 5px;
+    font-size: 12px;
     font-weight: bold;
-  
   }
-  .container {
-    width: 260px;
+  .grid th{
+    width: 12px;
+    height: 12px;
+    display: block;
+    border: 2px solid orange;
+    border-radius: 50%;
+    padding: 10px;
+  }
+  .container_seat {
+    width: 450px;
     display: block;
     padding-top: 20px;
   }

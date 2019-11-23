@@ -51,16 +51,22 @@
     height: 500px;
 }
 .man-hinh{
-    margin: 2% 30%;
+    margin: 5% 30% 2% 30%;
     height: 30px;
     background: #7f8c8d;
     color: #fff;
     line-height: 30px;
 }
 .chon-cho{
-    height: 330px;
+    display: flex;
+    justify-content: center;
+    height: 350px;
     margin: 0 20%;
     background: #f9f8f3;
+}
+#exit{
+    
+    display: flex;
 }
 .ghi-chu{
     margin: 0 20%;
@@ -74,6 +80,7 @@
     margin-top: 30px;
 }
 .Dat-ve-bot{
+    display: flex;
     justify-content: center;
     background: #f9f8f3;
 }
@@ -83,6 +90,7 @@
     border-right: 1px solid #bdc3c7;
 }
 .dat-ve-kq{
+    width: 100%;
     overflow: hidden;
     background: #ecf0f1;;
 }
@@ -131,6 +139,10 @@
     }
     .dat-ve-kq img{
         height: 31px;
+    }
+    .chon-cho{
+        margin: 0 5%;
+        height: 400px;
     }
 }
 
